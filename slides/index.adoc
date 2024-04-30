@@ -1,0 +1,14 @@
+= Angular Change de logo mais pas que
+:toc: macro
+:toclevels: 1
+:source-highlighter: highlight.js
+:docinfo: shared
+:revealjs_theme: white
+:revealjs_slideNumber: true
+:revealjs_history: true
+:revealjs_pdfseparatefragments: false
+
+:customcss: styles/custom.css
+:imagesdir: pictures
+
+include::chapters/01-Introduction.adoc[]

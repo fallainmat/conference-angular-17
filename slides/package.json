@@ -1,0 +1,17 @@
+{
+    "name": "slide",
+    "version": "1.0.0",
+    "description": "",
+    "main": "convert-slide.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+      "@asciidoctor/reveal.js": "^5.1.0",
+      "asciidoctor": "^3.0.3"
+    }
+  }
+  
