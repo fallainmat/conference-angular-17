@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {MatTabGroup, MatTabNav} from "@angular/material/tabs";
+import {OldHomeComponent} from "./old/old-home/old-home.component";
+import {MatToolbar} from "@angular/material/toolbar";
+import {MatAnchor} from "@angular/material/button";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, MatTabGroup, OldHomeComponent, MatTabNav, RouterLink, MatToolbar, RouterLinkActive, MatAnchor],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'conference-angular-17';
+  title = 'Angular change de logo mais pas que !';
 }

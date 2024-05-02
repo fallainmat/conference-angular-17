@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container-number-asteroid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.number-asteroid {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.container-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+
+  li {
+    padding: 2rem;
+    list-style: none;
+  }
+}
+
+.card.mat-mdc-card {
+  background-color: #f7f7f7;
+  color: #000;
+}
