@@ -1,0 +1,88 @@
+[%auto-animate]
+=== Avant Angular 17
+
+[%auto-animate]
+=== Avant Angular 17
+
+* Utilisation des *Directives Structurelle*
+* Provenant du *CommonModule*
+
+=== !
+
+[source,html,linenums]
+----
+<h1 *ngIf="planet" class="name">{{ planet.name }}</h1>
+----
+
+
+=== !
+
+[source,html,linenums]
+----
+<ng-template [ngIf]="planet">
+  <h1 class="name">{{planet.name}}</h1>
+</ng-template>
+----
+
+[%auto-animate]
+=== !
+
+[source,typescript,linenums, data-id=component]
+----
+...
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CommonModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  planet = {
+    name = "Neptune"
+  };
+}
+----
+
+[%auto-animate]
+=== !
+
+[source,typescript,linenums, data-id=component, highlight=2]
+----
+...
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CommonModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  planet = {
+    name = "Neptune"
+  };
+}
+----
+
+[%auto-animate]
+=== !
+
+[source,typescript,linenums, data-id=component, highlight=2;8   ]
+----
+...
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CommonModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  planet = {
+    name = "Neptune"
+  };
+}
+----

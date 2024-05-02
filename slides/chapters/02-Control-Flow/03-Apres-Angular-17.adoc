@@ -1,0 +1,43 @@
+[%auto-animate]
+=== Après Angular 17
+
+
+[%auto-animate]
+=== Après Angular 17
+WARNING: Control Flow est en version developer preview. Il est prêt à être essayé, mais peut changer avant de devenir stable.
+
+[%auto-animate]
+=== Après Angular 17
+* [.line-through]#Utilisation des *Directives Structurelle*#
+* [.line-through]#Provenant du *CommonModule*#
+
+[%auto-animate]
+=== Pourquoi ce changement ?
+* Passage à une syntaxe se rapprochant de JS
+* n'utilise plus de *<ng-template />*
+* passage au _zoneless_ plus simple 
+
+[.notes]
+****
+Ce dernier point est intéressant. Aujourd’hui les applications Angular repose sur zone.js pour gérer leurs détection de changement, dans un avenir très proche cette librairie externe ne sera plus nécessaire grâce aux Signal.
+Cependant rendre cela possible n’est pas une mince affaire pour l’équipe d’Angular car un changement des directives structurelle(ngIf, ngFor etc) était nécessaire. 
+Ils ont préféré opté pour un changement total de syntaxe et en ont profité pour apporter de nouvelles choses comme le {:empty} du {:for} par exemple.
+****
+
+=== Nouvelle Syntaxe
+
+[source,html,linenums]
+----
+@if (planet) {
+    <h1 class="name">{{ planet.name }}</h1>
+}
+----
+
+=== Pas de panique - une nouvelle schematic
+
+_ng g @angular/core:control-flow_
+
+[.notes]
+****
+ Faire la démo live
+****

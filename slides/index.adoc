@@ -10,5 +10,7 @@
 
 :customcss: styles/custom.css
 :imagesdir: pictures
+:icons: font
 
 include::chapters/01-Introduction.adoc[]
+include::chapters/02-Control-Flow/01-Introduction.adoc[]

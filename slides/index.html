@@ -413,10 +413,73 @@ ul.byline {
 ul.byline li + li {
   margin-top: 0.25em;
 }
-</style><link rel="stylesheet" href="styles/custom.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title">
-    <img src="assets/logo_angular_17.png" class="image-accueil">
-    <h3 class="titre-accueil">Angular Change de logo,<br> mais pas que!</h3>
-</section><section id="_introduction" class="columns" data-auto-animate><h2>Introduction</h2></section></div></div><script src="node_modules/reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/v4-shims.min.css"><link rel="stylesheet" href="styles/custom.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Angular Change de logo mais pas que</h1></section><section><section id="_introduction" class="columns" data-auto-animate><h2>Introduction</h2></section><section id="_pourquoi_cette_conf"><h2>Pourquoi cette Conf ?</h2></section><section id="_sommaire"><h2>Sommaire</h2><div class="slide-content"><div class="ulist"><ul><li><p>Control Flow</p></li><li><p>Signal</p></li></ul></div></div></section></section>
+<section><section id="_control_flow"><h2>Control Flow</h2><div class="slide-content"><aside class="notes"><div class="paragraph"><p>Angular 17, sorti en novembre 2023, introduit une refonte totale du Control Flow.
+Les directive structurelle sont remplacés par @if et @for etc.</p></div></aside></div></section><section id="_avant_angular_17" data-auto-animate><h2>Avant Angular 17</h2></section><section id="_avant_angular_17_2" data-auto-animate><h2>Avant Angular 17</h2><div class="slide-content"><div class="ulist"><ul><li><p>Utilisation des <strong>Directives Structurelle</strong></p></li><li><p>Provenant du <strong>CommonModule</strong></p></li></ul></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">&lt;h1 *ngIf="planet" class="name"&gt;{{ planet.name }}&lt;/h1&gt;</code></pre></div></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">&lt;ng-template [ngIf]="planet"&gt;
+  &lt;h1 class="name"&gt;{{planet.name}}&lt;/h1&gt;
+&lt;/ng-template&gt;</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="component"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="" data-lang="typescript">...
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CommonModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  planet = {
+    name = "Neptune"
+  };
+}</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="component"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="2" data-lang="typescript">...
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CommonModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  planet = {
+    name = "Neptune"
+  };
+}</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="component"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="2,8" data-lang="typescript">...
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CommonModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  planet = {
+    name = "Neptune"
+  };
+}</code></pre></div></div></div></section><section id="_après_angular_17" data-auto-animate><h2>Après Angular 17</h2></section><section id="_après_angular_17_2" data-auto-animate><h2>Après Angular 17</h2><div class="slide-content"><div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Control Flow est en version developer preview. Il est prêt à être essayé, mais peut changer avant de devenir stable.</td></tr></table></div></div></section><section id="_après_angular_17_3" data-auto-animate><h2>Après Angular 17</h2><div class="slide-content"><div class="ulist"><ul><li><p><span class="line-through">Utilisation des <strong>Directives Structurelle</strong></span></p></li><li><p><span class="line-through">Provenant du <strong>CommonModule</strong></span></p></li></ul></div></div></section><section id="_pourquoi_ce_changement" data-auto-animate><h2>Pourquoi ce changement ?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Passage à une syntaxe se rapprochant de JS</p></li><li><p>n&#8217;utilise plus de <strong>&lt;ng-template /&gt;</strong></p></li><li><p>passage au <em>zoneless</em> plus simple</p></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>Ce dernier point est intéressant. Aujourd’hui les applications Angular repose sur zone.js pour gérer leurs détection de changement, dans un avenir très proche cette librairie externe ne sera plus nécessaire grâce aux Signal.
+Cependant rendre cela possible n’est pas une mince affaire pour l’équipe d’Angular car un changement des directives structurelle(ngIf, ngFor etc) était nécessaire.
+Ils ont préféré opté pour un changement total de syntaxe et en ont profité pour apporter de nouvelles choses comme le {:empty} du {:for} par exemple.</p></div></aside></div></section><section id="_nouvelle_syntaxe"><h2>Nouvelle Syntaxe</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet) {
+    &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
+}</code></pre></div></div></div></section><section id="_pas_de_panique_une_nouvelle_schematic"><h2>Pas de panique - une nouvelle schematic</h2><div class="slide-content"><div class="paragraph"><p><em>ng g @angular/core:control-flow</em></p></div>
+<aside class="notes"><div class="literalblock"><div class="content"><pre>Faire la démo live</pre></div></div></aside></div></section><section id="_place_à_lavenir"><h2>Place à l&#8217;avenir</h2></section><section id="_syntaxe_if"><h2>Syntaxe @If</h2><div class="slide-content"><div class="paragraph"><p>@if permet un rendu conditionnel dans vos templates</p></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="if"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet) {
+    &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
+}</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="if"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet) {
+    &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
+}
+@else if(exoPlanet) {
+    &lt;h1 class="name"&gt;{{ exoPlanet.name }}&lt;/h1&gt;
+}</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="if"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet) {
+    &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
+}
+@else if(exoPlanet) {
+    &lt;h1 class="name"&gt;{{ exoPlanet.name }}&lt;/h1&gt;
+}
+@else {
+    &lt;span&gt;cette planète n'existe pas&lt;/span&gt;
+}</code></pre></div></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="if2"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet$ | async; as planet) {
+    &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
+}</code></pre></div></div></div></section></section></div></div><script src="node_modules/reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
@@ -1074,7 +1137,7 @@ Reveal.addEventListener('resize', function () {
   return RevealHighlight;
 
 }));
-
+        
 hljs.configure({
   ignoreUnescapedHTML: true,
 });
