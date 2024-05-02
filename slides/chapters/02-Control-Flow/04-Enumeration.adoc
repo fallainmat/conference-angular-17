@@ -1,0 +1,52 @@
+=== Place à l'avenir
+
+=== Syntaxe @If
+
+@if permet un rendu conditionnel dans vos templates
+[%auto-animate]
+=== !
+
+[source,html,linenums, data-id=if]
+----
+@if (planet) {
+    <h1 class="name">{{ planet.name }}</h1>
+}
+----
+
+[%auto-animate]
+=== !
+[source,html,linenums, data-id=if]
+----
+@if (planet) {
+    <h1 class="name">{{ planet.name }}</h1>
+}
+@else if(exoPlanet) {
+    <h1 class="name">{{ exoPlanet.name }}</h1>
+}
+----
+
+[%auto-animate]
+=== !
+
+[source,html,linenums, data-id=if]
+----
+@if (planet) {
+    <h1 class="name">{{ planet.name }}</h1>
+}
+@else if(exoPlanet) {
+    <h1 class="name">{{ exoPlanet.name }}</h1>
+}
+@else {
+    <span>cette planète n'existe pas</span>   
+}
+----
+
+=== !
+
+[source,html,linenums, data-id=if2]
+----
+@if (planet$ | async; as planet) {
+    <h1 class="name">{{ planet.name }}</h1>
+}
+----
+
