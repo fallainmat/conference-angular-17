@@ -1,3 +1,13 @@
 .reveal pre {
     width: 100%;
 }
+
+.titre-accueil {
+    font-size: 72px;
+    font-weight: bold;
+}
+
+.image-accueil {
+    width: 300px;
+    height: 300px;
+}

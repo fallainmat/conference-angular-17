@@ -413,7 +413,10 @@ ul.byline {
 ul.byline li + li {
   margin-top: 0.25em;
 }
-</style><link rel="stylesheet" href="styles/custom.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Angular Change de logo mais pas que</h1></section><section id="_introduction" class="columns" data-auto-animate><h2>Introduction</h2></section></div></div><script src="node_modules/reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+</style><link rel="stylesheet" href="styles/custom.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title">
+    <img src="assets/logo_angular_17.png" class="image-accueil">
+    <h3 class="titre-accueil">Angular Change de logo,<br> mais pas que!</h3>
+</section><section id="_introduction" class="columns" data-auto-animate><h2>Introduction</h2></section></div></div><script src="node_modules/reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
@@ -1071,7 +1074,7 @@ Reveal.addEventListener('resize', function () {
   return RevealHighlight;
 
 }));
-        
+
 hljs.configure({
   ignoreUnescapedHTML: true,
 });
