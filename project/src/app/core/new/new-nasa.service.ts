@@ -9,20 +9,20 @@ import { DailyImageModel } from "../model/nasa.model";
 export class NewNasaService {
   dailyImages = signal<DailyImageModel[]>([]);
   nbdailyImages = computed(() => this.dailyImages()?.length);
-
+  api_key = '';
   constructor(private httpClient: HttpClient) {
   }
 
   getListOfDailyImages(start_date: Date): Observable<void> {
     const start_date_string: string = this.formatISODate(start_date);
-    return this.httpClient.get<DailyImageModel[]>(`https://api.nasa.gov/planetary/apod?start_date=${start_date_string}&api_key=vyY7J1VHRVQFwV5Oe67GbGjUZ4n1RR0ik0A76tJM`).pipe(
+    return this.httpClient.get<DailyImageModel[]>(`https://api.nasa.gov/planetary/apod?start_date=${start_date_string}&api_key=${this.api_key}`).pipe(
       map((res) => {
         this.dailyImages.set(res);
       }));
   }
 
   getDailyImageByDate(date: string): Observable<DailyImageModel> {
-    return this.httpClient.get<DailyImageModel>(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=vyY7J1VHRVQFwV5Oe67GbGjUZ4n1RR0ik0A76tJM`);
+    return this.httpClient.get<DailyImageModel>(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${this.api_key}`);
   }
 
   private formatISODate(date: Date): string {
