@@ -69,7 +69,7 @@ export class AppComponent {
 [%auto-animate]
 === !
 
-[source,typescript,linenums, data-id=component, highlight=2;8   ]
+[source,typescript,linenums, data-id=component, highlight=2;7]
 ----
 ...
 import { CommonModule } from '@angular/common';

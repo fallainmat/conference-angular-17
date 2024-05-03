@@ -443,7 +443,7 @@ export class AppComponent {
   planet = {
     name = "Neptune"
   };
-}</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="component"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="2,8" data-lang="typescript">...
+}</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="component"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="2,7" data-lang="typescript">...
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -462,7 +462,7 @@ Cependant rendre cela possible n’est pas une mince affaire pour l’équipe d�
 Ils ont préféré opté pour un changement total de syntaxe et en ont profité pour apporter de nouvelles choses comme le {:empty} du {:for} par exemple.</p></div></aside></div></section><section id="_nouvelle_syntaxe"><h2>Nouvelle Syntaxe</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet) {
     &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
 }</code></pre></div></div></div></section><section id="_pas_de_panique_une_nouvelle_schematic"><h2>Pas de panique - une nouvelle schematic</h2><div class="slide-content"><div class="paragraph"><p><em>ng g @angular/core:control-flow</em></p></div>
-<aside class="notes"><div class="literalblock"><div class="content"><pre>Faire la démo live</pre></div></div></aside></div></section><section id="_place_à_lavenir"><h2>Place à l&#8217;avenir</h2></section><section id="_syntaxe_if"><h2>Syntaxe @If</h2><div class="slide-content"><div class="paragraph"><p>@if permet un rendu conditionnel dans vos templates</p></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="if"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet) {
+<aside class="notes"><div class="literalblock"><div class="content"><pre>Faire la démo live de la commande</pre></div></div></aside></div></section><section id="_place_à_lavenir"><h2>Place à l&#8217;avenir</h2></section><section id="_syntaxe_if"><h2>Syntaxe @if</h2><div class="slide-content"><div class="paragraph"><p><strong>@if</strong> permet un rendu conditionnel dans vos templates</p></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="if"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet) {
     &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
 }</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="if"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet) {
     &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
@@ -479,7 +479,144 @@ Ils ont préféré opté pour un changement total de syntaxe et en ont profité 
     &lt;span&gt;cette planète n'existe pas&lt;/span&gt;
 }</code></pre></div></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="if2"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet$ | async; as planet) {
     &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
-}</code></pre></div></div></div></section></section></div></div><script src="node_modules/reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+}</code></pre></div></div></div></section><section id="_syntaxe_for"><h2>Syntaxe @for</h2><div class="slide-content"><div class="paragraph"><p><strong>@for</strong> est utilisé pour itérer sur des collections, comme des listes ou des tableaux.</p></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="for"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@for (planet of planets; track planet.id) {
+    &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
+}</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>Insister sur la présence du track qui maintenant est obligatoire</p></div>
+<div class="paragraph"><p>Le bloc @for nécessite une expression de suivi. Angular utilise la valeur de cette expression comme une identité unique pour chaque élément. Cette identité permet au framework d&#8217;effectuer l&#8217;ensemble minimal d&#8217;opérations DOM nécessaires après l&#8217;ajout, la suppression ou le réordonnancement d&#8217;éléments.</p></div></aside></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="for"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@for (planet of planets; track planet.id) {
+    &lt;h1 class="name"&gt;{{ planet.name }}&lt;/h1&gt;
+}
+@empty {
+  &lt;p&gt;Aucun planète trouvée&lt;/p&gt;
+}</code></pre></div></div></div></section><section id="_index_et_autres_variables_contextuelles"><h2>$index et autres variables contextuelles</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="for"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@for (planet of planets; track planet.id) {
+    &lt;h1 class="name"&gt;{{ planet.name }} - {{$index}} &lt;/h1&gt;
+}</code></pre></div></div></div></section><section><div class="slide-content"><div class="ulist"><ul><li><p><strong>$index</strong> : l&#8217;index de l&#8217;élément courant dans la collection.</p></li><li><p><strong>$first</strong> : true si l&#8217;élément courant est le premier de la collection.</p></li><li><p><strong>$last</strong> : true si l&#8217;élément courant est le dernier de la collection.</p></li><li><p><strong>$even</strong> : true si l&#8217;index de l&#8217;élément courant est pair.</p></li><li><p><strong>$odd</strong> : true si l&#8217;index de l&#8217;élément courant est impair.</p></li><li><p><strong>$count</strong> : le nombre total d&#8217;éléments dans la collection.</p></li></ul></div></div></section><section id="_syntaxe_switch"><h2>Syntaxe @switch</h2><div class="slide-content"><div class="paragraph"><p><strong>@switch</strong> est utilisé pour exécuter différents morceaux de code en fonction de la valeur d&#8217;une expression.</p></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="switch"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@switch (planet.name) {
+}</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="switch"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@switch (planet.name) {
+  @case ('Jupiter' || 'Saturne') {
+    &lt;p&gt;est une planète géante gazeuse&lt;/p&gt;
+  }
+  @case ('Venus' || 'Uranus' ) {
+    &lt;p&gt;est une planète géante de glace&lt;/p&gt;
+  }
+}</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="switch"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@switch (planet.name) {
+  @case ('Jupiter' || 'Saturne') {
+    &lt;p&gt;est une planète géante gazeuse&lt;/p&gt;
+  }
+  @case ('Venus' || 'Uranus' ) {
+    &lt;p&gt;est une planète géante de glace&lt;/p&gt;
+  }
+  @default {
+    &lt;p&gt;est une planète tellurique.&lt;/p&gt;
+  }
+}</code></pre></div></div></div></section><section id="_defer"><h2>@defer</h2></section><section id="_la_nouvelle_ère_du_lazy_loading"><h2>La nouvelle ère du Lazy Loading</h2><div class="slide-content"><div class="paragraph"><p><strong>@defer</strong> permet de charger le contenu de manière différée, en fonction de différents déclencheurs.</p></div></div></section><section><div class="slide-content"><div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">En SSR les <strong>defer</strong> ne seront jamais déclenchées.</td></tr></table></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@defer(condition) {
+  &lt;p&gt;Une planète a été chargée.&lt;/p&gt;
+}</code></pre></div></div></div></section><section id="_de_multiples_déclencheurs"><h2>De multiples déclencheurs</h2><div class="slide-content"><div class="paragraph"><p>Deux options pour configurer le déclenchement :</p></div>
+<div class="ulist"><ul><li><p><strong>on</strong></p></li><li><p><strong>when</strong></p></li></ul></div></div></section><section id="_déclencheur_on"><h2>Déclencheur on</h2><div class="slide-content"><div class="paragraph"><p><strong>on</strong> spécifie une condition à l&#8217;aide d&#8217;un déclencheur disponible dans Angular.</p></div>
+<div class="paragraph"><p>Il est possible de définir plusieurs déclencheurs d&#8217;événements à la fois.</p></div></div></section><section><div class="slide-content"><aside class="notes"><div class="paragraph"><p><strong>viewport</strong> derrière se cache un intersection observer
+<strong>interaction</strong> écoute les événements "click" et "keydown".
+<strong>hover</strong> écoute les événements mouseenter et focusin.
+<strong>timer</strong> en utilisant setTimeout.</p></div></aside>
+<div class="ulist"><ul><li><p><strong>idle</strong> : chargement quand le navigateur est inactif.</p></li><li><p><strong>viewport</strong> : chargement du bloc lorsque l&#8217;élément devient visible dans la fenêtre du navigateur.</p></li><li><p><strong>interaction</strong> : chargement lorsque l&#8217;utilisateur interagit avec l&#8217;élément.</p></li><li><p><strong>hover</strong> : chargement du bloc lorsque l&#8217;utilisateur survole l&#8217;élément.</p></li><li><p><strong>immediate</strong> : chargement immédiat de l&#8217;élément N&#8217;affiche pas de placeholder, même s&#8217;il en existe un.</p></li><li><p><strong>timer</strong> : chargement du bloc après une durée donnée.</p></li></ul></div></div></section><section id="_chargement_sur_un_timer"><h2>Chargement sur un Timer</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@defer(on timer(5s))  {
+  &lt;p&gt;Une planète a été chargée.&lt;/p&gt;
+} @placeholder {
+  &lt;div&gt;Le chargement va bientôt commencer.&lt;/div&gt;
+}</code></pre></div></div></div></section><section id="_chargement_sur_une_interaction"><h2>Chargement sur une Interaction</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@defer (on interaction) {
+  &lt;p&gt;Une planète a été chargée.&lt;/p&gt;
+}
+@placeholder {
+  &lt;div&gt;Cliquez pour afficher une planète.&lt;/div&gt;
+}
+@loading(minimum 1s) {
+  &lt;span&gt;Chargement...&lt;/span&gt;
+}</code></pre></div></div></div></section><section id="_chargement_sur_lentrée_dans_le_viewport"><h2>Chargement sur l&#8217;entrée dans le Viewport</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@for (planet of planets; track $index) {
+  @defer (on viewport) {
+    &lt;p&gt;{{ planet.name}}&lt;/p&gt;
+  } @placeholder (minimum 2s) {
+    &lt;div&gt;Chargement..&lt;/div&gt;
+  }
+}</code></pre></div></div></div></section><section id="_déclencheur_when"><h2>Déclencheur when</h2><div class="slide-content"><div class="paragraph"><p><strong>when</strong> spécifie une condition sous la forme d&#8217;une expression qui renvoie un boolean.</p></div>
+<div class="paragraph"><p>Lorsque cette expression devient vraie, le placeholder est remplacé par l&#8217;élément lazy loaded.</p></div></div></section><section><div class="slide-content"><div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Si la condition <strong>when</strong> redevient fausse, le bloc "defer" n&#8217;est pas remplacé par le bloc "placeholder". La permutation est une opération unique.</td></tr></table></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@defer (when true) {
+  &lt;p&gt;Une planète a été chargée.&lt;/p&gt;
+}
+@loading(minimum 1s) {
+  &lt;span&gt;Chargement...&lt;/span&gt;
+}</code></pre></div></div></div></section><section id="_gestion_des_timing"><h2>gestion des timing</h2><div class="slide-content"><div class="paragraph"><p>Le chargement du bloc <strong>@defer</strong> pouvant être rapide, il existe un risque que le <strong>@loading</strong> soit affiché et masqué trop rapidement, ce qui provoquerait un effet de "scintillement".</p></div></div></section><section><div class="slide-content"><div class="ulist"><ul><li><p><strong>after</strong> pour spécifier après combien de millisecondes le chargement doit être affiché.</p></li><li><p><strong>minimum</strong> pour spécifier une durée minimale pour le chargement.</p></li></ul></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@defer(on timer(2s)) {
+    &lt;p&gt;Une planète a été chargée.&lt;/p&gt;
+}
+@placeholder {
+  &lt;div&gt;Le chargement va bientôt commencer.&lt;/div&gt;
+}
+@loading (after 500ms; minimum 1s) {
+  &lt;div&gt;Chargement...&lt;/div&gt;
+}</code></pre></div></div></div></section><section id="_gestion_des_erreurs"><h2>Gestion des erreurs</h2><div class="slide-content"><div class="paragraph"><p>Le bloc <strong>@error</strong>  permet de déclarer le contenu qui sera affiché si le chargement différé échoue.</p></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@defer(condition) {
+    &lt;p&gt;Une planète a été chargée.&lt;/p&gt;
+}
+@placeholder {
+  &lt;div&gt;Le chargement va bientôt commencer.&lt;/div&gt;
+}
+@loading {
+  &lt;div&gt;Chargement...&lt;/div&gt;
+}
+@error {
+  &lt;div&gt;Une erreur est survenue.&lt;/div&gt;
+}</code></pre></div></div></div></section><section id="_et_pour_les_tests"><h2>Et pour les tests ?</h2></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer-test"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="3" data-lang="typescript">beforeEach(() =&gt; {
+  TestBed.configureTestingModule({
+    deferBlockBehavior: DeferBlockBehavior.Playthrough
+  });
+});
+...
+
+await fixture.whenStable();
+...
+const deferBlocks = await fixture.getDeferBlocks();
+expect(deferBlocks.length).toBe(1);
+..
+/* Render the defer blocks */
+await deferBlocks[0].render(DeferBlockState.Placeholder);
+...
+await deferBlocks[0].render(DeferBlockState.Loading);
+...
+await deferBlocks[0].render(DeferBlockState.Complete);
+...
+await deferBlocks[0].render(DeferBlockState.Error);</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer-test"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="8" data-lang="typescript">beforeEach(() =&gt; {
+  TestBed.configureTestingModule({
+    deferBlockBehavior: DeferBlockBehavior.Playthrough
+  });
+});
+...
+
+await fixture.whenStable();
+...
+const deferBlocks = await fixture.getDeferBlocks();
+expect(deferBlocks.length).toBe(1);
+..
+/* Render the defer blocks */
+await deferBlocks[0].render(DeferBlockState.Placeholder);
+...
+await deferBlocks[0].render(DeferBlockState.Loading);
+...
+await deferBlocks[0].render(DeferBlockState.Complete);
+...
+await deferBlocks[0].render(DeferBlockState.Error);</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer-test"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="13,14,15,16,17,18,19,20" data-lang="typescript">beforeEach(() =&gt; {
+  TestBed.configureTestingModule({
+    deferBlockBehavior: DeferBlockBehavior.Playthrough
+  });
+});
+...
+
+await fixture.whenStable();
+...
+const deferBlocks = await fixture.getDeferBlocks();
+expect(deferBlocks.length).toBe(1);
+..
+/* Render the defer blocks */
+await deferBlocks[0].render(DeferBlockState.Placeholder);
+...
+await deferBlocks[0].render(DeferBlockState.Loading);
+...
+await deferBlocks[0].render(DeferBlockState.Complete);
+...
+await deferBlocks[0].render(DeferBlockState.Error);</code></pre></div></div></div></section><section id="_demo"><h2>Demo</h2></section></section></div></div><script src="node_modules/reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
