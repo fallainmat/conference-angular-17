@@ -1,0 +1,12 @@
+<div class="container-number-asteroid" *ngIf="nbAsteroid$ | async as nbAsteroid">
+  <p class="number-asteroid"> Nombre d'asteroid : {{ nbAsteroid }}</p>
+</div>
+
+<ul *ngIf="asteroid$ | async as asteroids" class="container-card">
+  <li *ngFor="let asteroid of asteroids">
+    <app-old-card [asteroid]="asteroid"></app-old-card>
+  </li>
+</ul>
+
+
+
