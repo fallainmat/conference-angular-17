@@ -30,4 +30,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .card.mat-mdc-card {
   background-color: #f7f7f7;
   color: #000;
+  width: 500px;
+  .card-image {
+    height: 350px;
+    object-fit: cover;
+  }
+}
+
+.loader {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

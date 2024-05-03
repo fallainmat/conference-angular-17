@@ -16,7 +16,7 @@ import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
   styleUrl: './old-detail.component.scss'
 })
 export class OldDetailComponent implements OnInit, OnDestroy {
-  asteroidById$ = this.nasaService.asteroidById$;
+  dailyImageByDate$ = this.nasaService.dailyImageByDate$;
   sub = new Subscription();
 
   constructor(private activatedRoute: ActivatedRoute, private nasaService: OldNasaService) {
@@ -26,8 +26,8 @@ export class OldDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub.add(this.activatedRoute.params.pipe(
       switchMap((params) => {
-        const {id} = params;
-        return this.nasaService.getAsteroidById(id);
+        const {date} = params;
+        return this.nasaService.getDailyImageByDate(date);
       })
     ).subscribe());
   }

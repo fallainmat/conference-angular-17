@@ -1,9 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
-import {OldCardComponent} from "../components/old-card/old-card.component";
-import {Observable, Subscription} from "rxjs";
-import {AsteroidModel} from "../../core/model/nasa.model";
-import {OldNasaService} from "../../core/old/old-nasa.service";
+import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { Observable, Subscription } from "rxjs";
+import { DailyImageModel } from "../../core/model/nasa.model";
+import { OldNasaService } from "../../core/old/old-nasa.service";
+import { OldCardComponent } from "../components/old-card/old-card.component";
 
 @Component({
   selector: 'app-old-home',
@@ -12,14 +13,15 @@ import {OldNasaService} from "../../core/old/old-nasa.service";
     NgIf,
     AsyncPipe,
     OldCardComponent,
-    NgForOf
+    NgForOf,
+    MatGridListModule
   ],
   templateUrl: './old-home.component.html',
   styleUrl: './old-home.component.scss'
 })
 export class OldHomeComponent implements OnInit, OnDestroy {
-  asteroid$: Observable<AsteroidModel[]> = this.nasaService.asteroid$;
-  nbAsteroid$: Observable<number> = this.nasaService.nbAsteroid$;
+  dailyImages$: Observable<DailyImageModel[]> = this.nasaService.dailyImages$;
+  nbdailyImages$: Observable<number> = this.nasaService.nbdailyImages$;
 
   sub = new Subscription();
 
@@ -27,7 +29,9 @@ export class OldHomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.sub.add(this.nasaService.getListOfAsteroids().subscribe())
+    var date = new Date();
+    date.setMonth(date.getMonth() - 1);
+    this.sub.add(this.nasaService.getListOfDailyImages(date).subscribe())
   }
 
   ngOnDestroy() {

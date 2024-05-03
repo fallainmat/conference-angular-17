@@ -1,3 +1,14 @@
-<ng-container *ngIf="asteroid()">
-  <pre>{{ asteroid() | json }}</pre>
-</ng-container>
+  @if (dailyImage(); as dailyImage) {
+    <div>
+      <h1>{{dailyImage.title}}</h1>
+      @defer (on timer(2s)) {
+        <img [src]="dailyImage.url">
+      }
+      @placeholder (minimum 1s) {
+        <mat-spinner></mat-spinner>
+      }
+      <h2>{{dailyImage.date}}</h2>
+      <p>{{dailyImage.explanation}}</p>
+    </div>
+  }
+

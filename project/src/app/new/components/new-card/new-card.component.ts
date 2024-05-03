@@ -1,9 +1,9 @@
-import {Component, input} from '@angular/core';
-import {MatButton} from "@angular/material/button";
-import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
-import {NgIf} from "@angular/common";
-import {RouterLink} from "@angular/router";
-import {AsteroidModel} from "../../../core/model/nasa.model";
+import { NgIf } from "@angular/common";
+import { Component, input } from '@angular/core';
+import { MatButton } from "@angular/material/button";
+import { MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle } from "@angular/material/card";
+import { RouterLink } from "@angular/router";
+import { DailyImageModel } from "../../../core/model/nasa.model";
 
 @Component({
   selector: 'app-new-card',
@@ -22,5 +22,5 @@ import {AsteroidModel} from "../../../core/model/nasa.model";
   styleUrl: './new-card.component.scss'
 })
 export class NewCardComponent {
-  asteroid = input.required<AsteroidModel>();
+  dailyImage = input.required<DailyImageModel>();
 }

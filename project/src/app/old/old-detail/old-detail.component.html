@@ -1,3 +1,7 @@
-<ng-container *ngIf="asteroidById$ | async as asteroid">
-  <pre>{{ asteroid | json }}</pre>
-</ng-container>
+<ng-container *ngIf="dailyImageByDate$| async as dailyImage">
+  <div>
+    <h1>{{dailyImage.title}}</h1>
+      <img [src]="dailyImage.url">
+    <h2>{{dailyImage.date}}</h2>
+    <p>{{dailyImage.explanation}}</p>
+  </div></ng-container>

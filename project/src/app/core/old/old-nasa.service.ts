@@ -1,31 +1,38 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, map, Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import {AsteroidModel, BodiesModel} from "../model/nasa.model";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { DailyImageModel } from "../model/nasa.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class OldNasaService {
-  asteroid$ = new BehaviorSubject<AsteroidModel[]>([]);
-  nbAsteroid$ = this.asteroid$.pipe(map((asteroids) => asteroids.length));
-  asteroidById$ = new BehaviorSubject<AsteroidModel | null>(null);
+  dailyImages$ = new BehaviorSubject<DailyImageModel[]>([]);
+  nbdailyImages$ = this.dailyImages$.pipe(map((dailyImages) => dailyImages.length));
+  dailyImageByDate$ = new BehaviorSubject<DailyImageModel | null>(null);
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getListOfAsteroids(): Observable<void> {
-    return this.httpClient.get<BodiesModel>('https://api.le-systeme-solaire.net/rest/bodies').pipe(
+  getListOfDailyImages(start_date: Date): Observable<void> {
+    const start_date_string: string = this.formatISODate(start_date);
+    return this.httpClient.get<DailyImageModel[]>(`https://api.nasa.gov/planetary/apod?start_date=${start_date_string}&api_key=vyY7J1VHRVQFwV5Oe67GbGjUZ4n1RR0ik0A76tJM`).pipe(
       map((res) => {
-        this.asteroid$.next(res.bodies)
+        this.dailyImages$.next(res)
       }));
   }
 
-  getAsteroidById(id: string): Observable<void> {
-    return this.httpClient.get<AsteroidModel>(`https://api.le-systeme-solaire.net/rest/bodies/${id}`).pipe(
+  getDailyImageByDate(date: string): Observable<void> {
+    return this.httpClient.get<DailyImageModel>(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=vyY7J1VHRVQFwV5Oe67GbGjUZ4n1RR0ik0A76tJM`).pipe(
       map((res) => {
-        this.asteroidById$.next(res)
+        this.dailyImageByDate$.next(res)
       })
     );
+  }
+  private formatISODate(date: Date): string {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 }

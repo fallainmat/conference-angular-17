@@ -1,5 +1,5 @@
 import {Routes} from '@angular/router';
-import {asteroidByIdResolver} from "./new/resolvers/asteroid-by-id.resolver";
+import {dailyImageDate} from "./new/resolvers/asteroid-by-id.resolver";
 
 export const routes: Routes = [
   {path: '', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)},
@@ -8,7 +8,7 @@ export const routes: Routes = [
     loadComponent: () => import('./old/old-home/old-home.component').then(m => m.OldHomeComponent),
   },
   {
-    path: 'old/detail/:id',
+    path: 'old/detail/:date',
     loadComponent: () => import('./old/old-detail/old-detail.component').then(m => m.OldDetailComponent)
   },
   {
@@ -16,8 +16,8 @@ export const routes: Routes = [
     loadComponent: () => import('./new/new-home/new-home.component').then(m => m.NewHomeComponent),
   },
   {
-    path: 'new/detail/:id',
+    path: 'new/detail/:date',
     loadComponent: () => import('./new/new-detail/new-detail.component').then(m => m.NewDetailComponent),
-    resolve: { asteroid: asteroidByIdResolver }
+    resolve: { dailyImage: dailyImageDate }
   },
 ];

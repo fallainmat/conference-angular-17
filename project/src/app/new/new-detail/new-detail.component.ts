@@ -1,8 +1,9 @@
-import {Component, input} from '@angular/core';
-import {MatButton} from "@angular/material/button";
-import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
-import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
-import {AsteroidModel} from "../../core/model/nasa.model";
+import { AsyncPipe, JsonPipe, NgIf } from "@angular/common";
+import { Component, input } from '@angular/core';
+import { MatButton } from "@angular/material/button";
+import { MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle } from "@angular/material/card";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DailyImageModel } from "../../core/model/nasa.model";
 
 @Component({
   selector: 'app-new-detail',
@@ -16,11 +17,12 @@ import {AsteroidModel} from "../../core/model/nasa.model";
     MatCardTitle,
     NgIf,
     AsyncPipe,
-    JsonPipe
+    JsonPipe,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './new-detail.component.html',
   styleUrl: './new-detail.component.scss'
 })
 export class NewDetailComponent {
-  asteroid = input.required<AsteroidModel>();
+  dailyImage = input.required<DailyImageModel>();
 }

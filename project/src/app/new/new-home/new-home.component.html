@@ -1,9 +1,20 @@
 <div class="container-number-asteroid">
-  <p class="number-asteroid" *ngIf="nbAsteroid()"> Nombre d'asteroid : {{ nbAsteroid() }}</p>
+  <p class="number-asteroid" *ngIf="nbImage()"> Nombre d'image : {{ nbImage() }}</p>
 </div>
-
-<ul class="container-card">
-  <li *ngFor="let asteroid of asteroids()">
-    <app-old-card [asteroid]="asteroid"></app-old-card>
-  </li>
-</ul>
+  @defer (when dailyImages().length > 0) {
+    <mat-grid-list cols="3" rowHeight="1:1">
+      @for (dailyImage of dailyImages(); track dailyImage.date) {
+        <mat-grid-tile>
+          @defer (on viewport) {
+            <app-new-card [dailyImage]="dailyImage"></app-new-card>
+          } @placeholder {
+            <mat-spinner></mat-spinner>
+          }
+        </mat-grid-tile>
+        }
+      </mat-grid-list>
+  } @placeholder  {
+    <div class="loader">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
