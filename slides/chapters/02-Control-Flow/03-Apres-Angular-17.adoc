@@ -39,5 +39,5 @@ _ng g @angular/core:control-flow_
 
 [.notes]
 ****
- Faire la démo live
+ Faire la démo live de la commande
 ****

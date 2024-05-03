@@ -1,8 +1,9 @@
 === Place à l'avenir
 
-=== Syntaxe @If
+=== Syntaxe @if
 
-@if permet un rendu conditionnel dans vos templates
+*@if* permet un rendu conditionnel dans vos templates
+
 [%auto-animate]
 === !
 
@@ -50,3 +51,102 @@
 }
 ----
 
+
+=== Syntaxe @for
+
+*@for* est utilisé pour itérer sur des collections, comme des listes ou des tableaux.
+
+[%auto-animate]
+=== !
+
+[source,html,linenums, data-id=for]
+----
+@for (planet of planets; track planet.id) {
+    <h1 class="name">{{ planet.name }}</h1>
+}
+----
+
+[.notes]
+****
+Insister sur la présence du track qui maintenant est obligatoire
+
+Le bloc @for nécessite une expression de suivi. Angular utilise la valeur de cette expression comme une identité unique pour chaque élément. Cette identité permet au framework d'effectuer l'ensemble minimal d'opérations DOM nécessaires après l'ajout, la suppression ou le réordonnancement d'éléments.
+****
+
+[%auto-animate]
+=== !
+
+[source,html,linenums, data-id=for]
+----
+@for (planet of planets; track planet.id) {
+    <h1 class="name">{{ planet.name }}</h1>
+}
+@empty {
+  <p>Aucun planète trouvée</p>
+}
+----
+
+=== $index et autres variables contextuelles
+
+[source,html,linenums, data-id=for]
+----
+@for (planet of planets; track planet.id) {
+    <h1 class="name">{{ planet.name }} - {{$index}} </h1>
+}
+----
+
+=== !
+* *$index* : l'index de l'élément courant dans la collection.
+* *$first* : true si l'élément courant est le premier de la collection.
+* *$last* : true si l'élément courant est le dernier de la collection.
+* *$even* : true si l'index de l'élément courant est pair.
+* *$odd* : true si l'index de l'élément courant est impair.
+* *$count* : le nombre total d'éléments dans la collection.
+
+
+=== Syntaxe @switch
+
+*@switch* est utilisé pour exécuter différents morceaux de code en fonction de la valeur d'une expression.
+
+[%auto-animate]
+=== !
+
+[source,html,linenums, data-id=switch]
+----
+@switch (planet.name) {
+}
+----
+
+
+[%auto-animate]
+=== !
+
+[source,html,linenums, data-id=switch]
+----
+@switch (planet.name) {
+  @case ('Jupiter' || 'Saturne') {
+    <p>est une planète géante gazeuse</p>
+  }
+  @case ('Venus' || 'Uranus' ) {
+    <p>est une planète géante de glace</p>
+  }
+}
+----
+
+[%auto-animate]
+=== !
+
+[source,html,linenums, data-id=switch]
+----
+@switch (planet.name) {
+  @case ('Jupiter' || 'Saturne') {
+    <p>est une planète géante gazeuse</p>
+  }
+  @case ('Venus' || 'Uranus' ) {
+    <p>est une planète géante de glace</p>
+  }
+  @default {
+    <p>est une planète tellurique.</p>
+  }
+}
+----

@@ -9,3 +9,6 @@ Les directive structurelle sont remplacés par @if et @for etc.
 include::02-Avant-Angular-17.adoc[]
 include::03-Apres-Angular-17.adoc[]
 include::04-Enumeration.adoc[]
+include::05-Defer.adoc[]
+
+=== Demo
