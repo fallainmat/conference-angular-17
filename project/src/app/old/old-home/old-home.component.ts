@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AsteroidModel, NasaService} from "../../core/nasa.service";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {OldCardComponent} from "../components/old-card/old-card.component";
 import {Observable, Subscription} from "rxjs";
+import {AsteroidModel} from "../../core/model/nasa.model";
+import {OldNasaService} from "../../core/old/old-nasa.service";
 
 @Component({
   selector: 'app-old-home',
@@ -20,11 +21,9 @@ export class OldHomeComponent implements OnInit, OnDestroy {
   asteroid$: Observable<AsteroidModel[]> = this.nasaService.asteroid$;
   nbAsteroid$: Observable<number> = this.nasaService.nbAsteroid$;
 
-
   sub = new Subscription();
 
-
-  constructor(private nasaService: NasaService) {
+  constructor(private nasaService: OldNasaService) {
   }
 
   ngOnInit() {

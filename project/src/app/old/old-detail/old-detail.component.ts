@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Subscription, switchMap} from "rxjs";
-import {NasaService} from "../../core/nasa.service";
+import {OldNasaService} from "../../core/old/old-nasa.service";
 import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
 
 @Component({
@@ -19,7 +19,7 @@ export class OldDetailComponent implements OnInit, OnDestroy {
   asteroidById$ = this.nasaService.asteroidById$;
   sub = new Subscription();
 
-  constructor(private activatedRoute: ActivatedRoute, private nasaService: NasaService) {
+  constructor(private activatedRoute: ActivatedRoute, private nasaService: OldNasaService) {
 
   }
 

@@ -1,4 +1,5 @@
 import {Routes} from '@angular/router';
+import {asteroidByIdResolver} from "./new/resolvers/asteroid-by-id.resolver";
 
 export const routes: Routes = [
   {path: '', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)},
@@ -15,7 +16,8 @@ export const routes: Routes = [
     loadComponent: () => import('./new/new-home/new-home.component').then(m => m.NewHomeComponent),
   },
   {
-    path: 'detail/:id',
-    loadComponent: () => import('./new/new-detail/new-detail.component').then(m => m.NewDetailComponent)
+    path: 'new/detail/:id',
+    loadComponent: () => import('./new/new-detail/new-detail.component').then(m => m.NewDetailComponent),
+    resolve: { asteroid: asteroidByIdResolver }
   },
 ];

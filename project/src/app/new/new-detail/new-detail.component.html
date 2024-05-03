@@ -1,1 +1,3 @@
-<p>new-detail works!</p>
+<ng-container *ngIf="asteroid()">
+  <pre>{{ asteroid() | json }}</pre>
+</ng-container>

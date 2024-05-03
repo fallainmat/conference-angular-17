@@ -8,9 +8,9 @@ import {
   MatCardSubtitle,
   MatCardTitle
 } from "@angular/material/card";
-import {AsteroidModel} from "../../../core/nasa.service";
 import {MatButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
+import {AsteroidModel} from "../../../core/model/nasa.model";
 
 @Component({
   selector: 'app-old-card',

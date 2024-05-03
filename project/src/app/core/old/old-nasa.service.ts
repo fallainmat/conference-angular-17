@@ -1,39 +1,14 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, map, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-
-export interface AsteroidModel {
-  id: string,
-  name: string,
-  englishName: string,
-  isPlanet: true,
-  moons: [
-    {
-      moon: string,
-      rel: string
-    }
-  ],
-  semimajorAxis: 0,
-  perihelion: 0,
-  aphelion: 0,
-  eccentricity: 0,
-  inclination: 0,
-  mass: {
-    massValue: 0,
-    massExponent: 0
-  },
-}
-
-interface BodiesModel {
-  bodies: AsteroidModel[];
-}
+import {AsteroidModel, BodiesModel} from "../model/nasa.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class NasaService {
+export class OldNasaService {
   asteroid$ = new BehaviorSubject<AsteroidModel[]>([]);
-  nbAsteroid$ = new BehaviorSubject<number>(0);
+  nbAsteroid$ = this.asteroid$.pipe(map((asteroids) => asteroids.length));
   asteroidById$ = new BehaviorSubject<AsteroidModel | null>(null);
 
   constructor(private httpClient: HttpClient) {
@@ -43,7 +18,6 @@ export class NasaService {
     return this.httpClient.get<BodiesModel>('https://api.le-systeme-solaire.net/rest/bodies').pipe(
       map((res) => {
         this.asteroid$.next(res.bodies)
-        this.nbAsteroid$.next(res.bodies.length)
       }));
   }
 

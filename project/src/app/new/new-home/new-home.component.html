@@ -1,1 +1,9 @@
-<p>new-home works!</p>
+<div class="container-number-asteroid">
+  <p class="number-asteroid" *ngIf="nbAsteroid()"> Nombre d'asteroid : {{ nbAsteroid() }}</p>
+</div>
+
+<ul class="container-card">
+  <li *ngFor="let asteroid of asteroids()">
+    <app-old-card [asteroid]="asteroid"></app-old-card>
+  </li>
+</ul>
