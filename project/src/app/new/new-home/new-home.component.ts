@@ -1,4 +1,4 @@
-import { AsyncPipe, JsonPipe, NgForOf, NgIf } from "@angular/common";
+import { AsyncPipe, JsonPipe } from "@angular/common";
 import { Component, DestroyRef, inject, OnInit, Signal } from '@angular/core';
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { DailyImageModel } from "../../core/model/nasa.model";
@@ -14,15 +14,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
     templateUrl: './new-home.component.html',
     styleUrl: './new-home.component.scss',
     imports: [
-        AsyncPipe,
-        NgForOf,
-        NgIf,
-        OldCardComponent,
-        JsonPipe,
-        NewCardComponent,
-        MatProgressSpinnerModule,
-        MatGridListModule
-    ]
+    AsyncPipe,
+    OldCardComponent,
+    JsonPipe,
+    NewCardComponent,
+    MatProgressSpinnerModule,
+    MatGridListModule
+]
 })
 export class NewHomeComponent implements OnInit {
   destroyRef = inject(DestroyRef);

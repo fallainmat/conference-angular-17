@@ -1,4 +1,4 @@
-import { AsyncPipe, JsonPipe, NgIf } from "@angular/common";
+import { AsyncPipe, JsonPipe } from "@angular/common";
 import { Component, input } from '@angular/core';
 import { MatButton } from "@angular/material/button";
 import { MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle } from "@angular/material/card";
@@ -15,11 +15,10 @@ import { DailyImageModel } from "../../core/model/nasa.model";
     MatCardHeader,
     MatCardSubtitle,
     MatCardTitle,
-    NgIf,
     AsyncPipe,
     JsonPipe,
-    MatProgressSpinnerModule,
-  ],
+    MatProgressSpinnerModule
+],
   templateUrl: './new-detail.component.html',
   styleUrl: './new-detail.component.scss'
 })

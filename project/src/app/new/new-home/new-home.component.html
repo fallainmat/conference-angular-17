@@ -1,20 +1,22 @@
 <div class="container-number-asteroid">
-  <p class="number-asteroid" *ngIf="nbImage()"> Nombre d'image : {{ nbImage() }}</p>
-</div>
-  @defer (when dailyImages().length > 0) {
-    <mat-grid-list cols="3" rowHeight="1:1">
-      @for (dailyImage of dailyImages(); track dailyImage.date) {
-        <mat-grid-tile>
-          @defer (on viewport) {
-            <app-new-card [dailyImage]="dailyImage"></app-new-card>
-          } @placeholder {
-            <mat-spinner></mat-spinner>
-          }
-        </mat-grid-tile>
-        }
-      </mat-grid-list>
-  } @placeholder  {
-    <div class="loader">
-      <mat-spinner></mat-spinner>
-    </div>
+  @if (nbImage()) {
+    <p class="number-asteroid"> Nombre d'image : {{ nbImage() }}</p>
   }
+</div>
+@defer (when dailyImages().length > 0) {
+<mat-grid-list cols="3" rowHeight="1:1">
+  @for (dailyImage of dailyImages(); track dailyImage.date) {
+    <mat-grid-tile>
+      @defer (on viewport) {
+      <app-new-card [dailyImage]="dailyImage"></app-new-card>
+      } @placeholder {
+      <mat-spinner></mat-spinner>
+    }
+  </mat-grid-tile>
+}
+</mat-grid-list>
+} @placeholder  {
+<div class="loader">
+  <mat-spinner></mat-spinner>
+</div>
+}
