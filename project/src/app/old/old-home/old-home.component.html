@@ -1,5 +1,5 @@
 <div class="container-number-asteroid" *ngIf="nbdailyImages$ | async as nbdailyImages">
-  <p class="number-asteroid"> Nombre d'asteroid : {{ nbdailyImages }}</p>
+  <p class="number-asteroid"> Nombre d'image : {{ nbdailyImages }}</p>
 </div>
 
 <mat-grid-list cols="3" rowHeight="1:1" *ngIf="dailyImages$ | async as dailyImage" class="container-card">

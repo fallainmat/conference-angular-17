@@ -3,12 +3,15 @@ import {provideRouter, withComponentInputBinding} from '@angular/router';
 import {routes} from './app.routes';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideHttpClient} from "@angular/common/http";
+import { withViewTransitions } from '@angular/router';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(
       routes,
-      withComponentInputBinding()),
+      withComponentInputBinding(),
+      withViewTransitions()
+    ),
     provideAnimationsAsync(),
     provideHttpClient()
   ]
