@@ -1,14 +1,25 @@
   @if (dailyImage(); as dailyImage) {
-    <div>
-      <h1>{{dailyImage.title}}</h1>
+    <div class="container-article">
       @defer (on timer(2s)) {
-        <img [src]="dailyImage.url">
+        <div class="article-image">
+          <img  [src]="dailyImage.url">
+        </div>
       }
       @placeholder (minimum 1s) {
-        <mat-spinner></mat-spinner>
+        <div class="article-image">
+          <mat-spinner></mat-spinner>
+        </div>
       }
-      <h2>{{dailyImage.date}}</h2>
-      <p>{{dailyImage.explanation}}</p>
+      <div class="article-desc">
+        <h1>{{dailyImage.title}}</h1>
+        <p>{{dailyImage.explanation}}</p>
+
+        <div class="article-copyright">
+          <h2>{{dailyImage.date}}</h2>
+          <h2>{{dailyImage.copyright}}</h2>
+        </div>
+      </div>
     </div>
   }
+
 

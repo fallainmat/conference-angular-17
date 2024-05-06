@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+* {
+  box-sizing: border-box;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -43,4 +45,47 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.container-article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0 126px;
+  .article-image {
+    width: 50%;
+    height: 70cqh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+  }
+  .article-desc {
+    padding:  0 25px;
+    flex: 1;
+    h1 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      line-height: 1.05em;
+    }
+    .article-copyright {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      border-top: 1px solid #2e2e32;
+      padding-top: 1rem;
+      h2 {
+        font-size: 13px;
+
+      }
+    }
+  }
 }
