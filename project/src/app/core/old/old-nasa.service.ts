@@ -10,7 +10,7 @@ export class OldNasaService {
   dailyImages$ = new BehaviorSubject<DailyImageModel[]>([]);
   nbdailyImages$ = this.dailyImages$.pipe(map((dailyImages) => dailyImages.length));
   dailyImageByDate$ = new BehaviorSubject<DailyImageModel | null>(null);
-  api_key = '';
+  api_key = 'vyY7J1VHRVQFwV5Oe67GbGjUZ4n1RR0ik0A76tJM';
   constructor(private httpClient: HttpClient) {
   }
 

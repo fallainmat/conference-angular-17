@@ -1,8 +1,7 @@
 import { HttpClient } from "@angular/common/http";
-import {computed, Injectable, Signal, signal} from '@angular/core';
+import {computed, Injectable, signal} from '@angular/core';
 import { map, Observable } from "rxjs";
 import { DailyImageModel } from "../model/nasa.model";
-import {toSignal} from "@angular/core/rxjs-interop";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ import {toSignal} from "@angular/core/rxjs-interop";
 export class NewNasaService {
   dailyImages = signal<DailyImageModel[]>([]);
   nbdailyImages = computed(() => this.dailyImages()?.length);
-  api_key = '';
+  api_key = 'vyY7J1VHRVQFwV5Oe67GbGjUZ4n1RR0ik0A76tJM';
   constructor(private httpClient: HttpClient) {
   }
 
