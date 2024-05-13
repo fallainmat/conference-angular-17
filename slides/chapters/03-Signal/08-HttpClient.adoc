@@ -11,8 +11,8 @@ HttpClient fonctionne toujours avec les observables, donc subscribe etc etc.
 [%auto-animate]
 === !
 
-* toSignal();
-* toObservable();
+* toSignal()
+* toObservable()
 
 [%auto-animate]
 === !

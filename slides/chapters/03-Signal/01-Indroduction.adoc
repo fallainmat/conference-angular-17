@@ -8,4 +8,7 @@ Signal est arrivé avec Angular 16 suite à la RFC https://github.com/angular/an
 include::02-Avant-Angular-16.adoc[]
 include::03-Apres-Angular-16.adoc[]
 include::04-Signal-description-primitive.adoc[]
-include::05-HttpClient.adoc[]
+include::05-Signal-input.adoc[]
+include::06-Signal-model.adoc[]
+include::07-Signal-queries.adoc[]
+include::08-HttpClient.adoc[]

@@ -1,5 +1,5 @@
 [%auto-animate]
-=== HttpClient
+=== Signal Model
 
 Signal Model
 

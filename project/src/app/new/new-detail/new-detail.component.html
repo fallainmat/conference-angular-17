@@ -1,25 +1,35 @@
-  @if (dailyImage(); as dailyImage) {
-    <div class="container-article">
-      @defer (on timer(2s)) {
-        <div class="article-image">
-          <img  [src]="dailyImage.url">
-        </div>
-      }
-      @placeholder (minimum 1s) {
-        <div class="article-image">
-          <mat-spinner></mat-spinner>
-        </div>
-      }
-      <div class="article-desc">
-        <h1>{{dailyImage.title}}</h1>
-        <p>{{dailyImage.explanation}}</p>
+@if (dailyImage(); as dailyImage) {
+  <div class="container-article">
+    @defer (on timer(2s)) {
+      <div class="article-image">
+        <img  [src]="dailyImage.url">
+      </div>
+    }
+    @placeholder (minimum 1s) {
+      <div class="article-image">
+        <mat-spinner></mat-spinner>
+      </div>
+    }
+    <div class="article-desc">
+      <h1>{{dailyImage.title}}</h1>
+      <p>{{dailyImage.explanation}}</p>
 
-        <div class="article-copyright">
-          <h2>{{dailyImage.date}}</h2>
-          <h2>{{dailyImage.copyright}}</h2>
-        </div>
+      <div class="article-copyright">
+        <h2>{{dailyImage.date}}</h2>
+        <h2>{{dailyImage.copyright}}</h2>
       </div>
     </div>
-  }
+  </div>
+}
+
+<!--@if (testDailyImage() ; as test) {
+  <h1>Je suis un Signal</h1>
+  <pre>{{ test | json }}</pre>
+}
+
+@if (testDailyImage$ | async ; as test) {
+  <h1>Je suis un observable</h1>
+  <pre>{{ test | json }}</pre>
+}-->
 
 

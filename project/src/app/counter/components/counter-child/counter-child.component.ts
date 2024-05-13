@@ -11,13 +11,14 @@ export class CounterChildComponent {
   timer = signal(0);
   timerEffect = effect((onCleanup) => {
     const timerId = setInterval(() => {
-      console.log(this.timer());
+     this.timer.update((value) => value + 1);
+      console.log('timer', this.timer());
     }, 1000);
 
     onCleanup(() => {
       clearInterval(timerId)
     });
-  }, { manualCleanup: true });
+  }, {manualCleanup: true });
 
   stopSetInterval() {
     this.timerEffect.destroy()

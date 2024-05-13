@@ -1,31 +1,43 @@
 <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-  <div style="display: flex">
-    <h1>Count: {{ count() }}</h1>
-    <h1 style="margin-left: 20px">DoubleCount: {{ doubleCount() }}</h1>
+  <h1>Signal</h1>
+  <div style="border: thick double #9CD9F0; width: 90%; padding: 10px">
+    <div style="display: flex; justify-content: space-between">
+      <div style="display: flex; flex-direction: column">
+        <h1>Count: {{ count() }}</h1>
+        <h1>DoubleCount: {{ doubleCount() }}</h1>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <h1>CountObs: {{ countObs }}</h1>
+        <h1>DoubleCountObs: {{ doubleCountObs$ | async }}</h1>
+      </div>
+    </div>
+    <div style="margin-top: 50px; display: flex; justify-content: center">
+      <button mat-button color="warn" (click)="resetValue()">Reset</button>
+      <button mat-button color="primary" (click)="decrementValue()">Decrement</button>
+      <button mat-button color="primary" (click)="incrementValue()">Increment</button>
+    </div>
   </div>
-  <div style="display: flex">
-    <h1>CountObs: {{ countObs }}</h1>
-    <h1 style="margin-left: 20px">DoubleCountObs: {{ doubleCountObs$ | async }}</h1>
+  <h1 style="margin-top: 50px">Computed</h1>
+  <div style="border: thick double #9CD9F0; width: 90%; padding: 10px">
+    <div style="margin-top: 50px; display: flex; flex-direction: column; align-items: center">
+      <h1>{{ conditionalCount() }}</h1>
+      <button mat-button color="primary" (click)="changeConditionalDouble()" style="margin-top: 40px">Je veux voir un
+        double count
+      </button>
+    </div>
+    <div style="margin-top: 50px">
+      <button mat-button color="primary" (click)="changeStopCount()">{{ stopCount ? 'REBOUGE' : 'ARRETE DE BOUGER' }} DOUBLE COUNT</button>
+    </div>
   </div>
-  <div style="margin-top: 50px">
-    <button mat-button color="warn" (click)="resetValue()">Reset</button>
-    <button mat-button color="primary" (click)="decrementValue()">Decrement</button>
-    <button mat-button color="primary" (click)="incrementValue()">Increment</button>
-  </div>
-<!--  <div style="margin-top: 50px">
-    <p >{{ conditionalCount() }}</p>
-    <button mat-button color="primary" (click)="changeConditionalDouble()" style="margin-top: 40px">Double</button>
-  </div>-->
-<!--  <div style="margin-top: 50px">
-    <button mat-button color="primary" (click)="changeStopCount()">ARRETE DE BOUGER</button>
-  </div>-->
 
-<!--  <div style="margin-top: 20px">
-    <h3>EFFECT TIME</h3>
-    <button mat-button color="primary" (click)="changeDisplayChild()">add child</button>
-    <button mat-button color="warn" (click)="changeDisplayChild()">remove child</button>
+  <h1 style="margin-top: 50px">Effect</h1>
+  <div style="border: thick double #9CD9F0; width: 90%; padding: 10px; display: flex; flex-direction: column; align-items: center">
+    <div>
+      <button mat-button color="warn" (click)="changeDisplayChild()">remove child</button>
+      <button mat-button color="primary" (click)="changeDisplayChild()">add child</button>
+    </div>
     <div style="margin: 20px 0">
       <app-counter-child *ngIf="displayChild"></app-counter-child>
     </div>
-  </div>-->
+  </div>
 </div>

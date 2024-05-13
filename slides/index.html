@@ -674,7 +674,13 @@ export class NewNasaService {
   getDailyImageByDate(date: string): Signal&lt;DailyImageModel | undefined&gt; {
     return toSignal(this.httpClient.get&lt;DailyImageModel&gt;(`https://api.nasa.gov/planetary/apod?date=${date}&amp;api_key=${this.api_key}`));
   }
-}</code></pre></div></div></div></section></section>
+}</code></pre></div></div></div></section><section id="_signal_input" data-auto-animate><h2>Signal Input</h2><div class="slide-content"><div class="paragraph"><p>Signal Input</p></div>
+<div class="paragraph"><p>Nouvelle façon d&#8217;utiliser l&#8217;input dans un composant enfant. input()</p></div>
+<div class="paragraph"><p>Pourquoi utiliser input() au lieu du décorateur @Input() ?</p></div></div></section><section data-auto-animate></section><section id="_signal_model" data-auto-animate><h2>Signal Model</h2><div class="slide-content"><div class="paragraph"><p>Signal Model</p></div>
+<div class="paragraph"><p>Nouvelle façon d&#8217;utiliser l&#8217;input/output dans un seul "signal". plus besoin de faire un set/update pour changer la valeur.</p></div></div></section><section data-auto-animate></section><section id="_signal_queries" data-auto-animate><h2>Signal Queries</h2><div class="slide-content"><div class="paragraph"><p>Signal queries</p></div>
+<div class="paragraph"><p>On dénombre 2 types de Query :</p></div>
+<div class="ulist"><ul><li><p>View Queries.</p></li><li><p>Content Queries.</p></li></ul></div>
+<div class="paragraph"><p>View remplace ViewChild et Content remplace ContentChild.</p></div></div></section><section data-auto-animate></section></section>
 <section><section id="_conclusion"><h2>Conclusion</h2></section><section id="_pour_aller_plus_loin"><h2>Pour aller plus loin</h2></section><section id="_et_angular_18"><h2>Et Angular 18 ?</h2></section><section><div class="slide-content"><div class="ulist"><ul><li><p>Redirection de route avec fonction</p></li><li><p>Optimisation du compiler Ivy</p></li><li><p>Nouvelle API ng-template</p></li></ul></div></div></section><section id="_remerciement" class="columns"><h2>Remerciement</h2><div class="slide-content"><div class="imageblock column is-half"><img src="assets/bordeaux_js.jpg" alt="bordeaux js"></div>
 <div class="imageblock column is-half"><img src="assets/onepoint_rvb_baseline.png" alt="onepoint rvb baseline"></div></div></section></section></div></div><script src="node_modules/reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
