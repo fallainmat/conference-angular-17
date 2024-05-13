@@ -1,0 +1,6 @@
+[.columns]
+=== Remerciement 
+[.column.is-half]
+image::bordeaux_js.jpg[]
+[.column.is-half]
+image::onepoint_rvb_baseline.png[]
