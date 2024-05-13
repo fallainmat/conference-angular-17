@@ -34,8 +34,15 @@ Ils ont préféré opté pour un changement total de syntaxe et en ont profité 
 ----
 
 === Pas de panique - une nouvelle schematic
+++++
+<div class=fakeMenu>
+</div>
+<div class="fakeScreen">
+  <p class="line1">$ ng g @angular/core:control-flow</p>
+</div>
+++++
 
-_ng g @angular/core:control-flow_
+
 
 [.notes]
 ****

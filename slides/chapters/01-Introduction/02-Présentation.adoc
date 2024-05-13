@@ -1,0 +1,20 @@
+[.columns]
+[.qui]
+=== Qui sommes nous ? 
+
+[.column.is-half]
+--
+image::florian_allainmat.jpg[]
+
+Florian ALLAINMAT +
+Tech Lead Front
+--
+[.column.is-half]
+--
+image::remi_pachet.jpg[]
+
+Rémi PACHET +
+Tech Lead Front
+--
+
+
