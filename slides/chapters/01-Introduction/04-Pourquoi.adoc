@@ -1,0 +1,10 @@
+    
+[.columns]
+=== Pourquoi cette Conf ?
+
+[.column.is-one-third]
+image::logo_angular_js.png[]
+[.column.is-one-third]
+image::logo_angular.png[]
+[.column.is-one-third]
+image::logo_angular_17.png[]

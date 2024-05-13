@@ -9,8 +9,8 @@
 :revealjs_pdfseparatefragments: false
 
 :customcss: styles/custom.css
-:imagesdir: pictures
+:imagesdir: assets
 :icons: font
 
-include::chapters/01-Introduction.adoc[]
+include::chapters/01-Introduction/01-Introduction.adoc[]
 include::chapters/02-Control-Flow/01-Introduction.adoc[]
