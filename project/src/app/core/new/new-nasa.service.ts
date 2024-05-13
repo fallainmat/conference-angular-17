@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
-import { computed, Injectable, signal } from '@angular/core';
+import {computed, Injectable, Signal, signal} from '@angular/core';
 import { map, Observable } from "rxjs";
 import { DailyImageModel } from "../model/nasa.model";
+import {toSignal} from "@angular/core/rxjs-interop";
 
 @Injectable({
   providedIn: 'root'

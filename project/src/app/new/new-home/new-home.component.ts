@@ -32,7 +32,7 @@ export class NewHomeComponent implements OnInit {
   nbImage = this.newNasaService.nbdailyImages;
 
   ngOnInit() {
-    var date = new Date();
+    const date = new Date();
     date.setMonth(date.getMonth() - 1);
     this.newNasaService.getListOfDailyImages(date).pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
   }

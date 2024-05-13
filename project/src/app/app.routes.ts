@@ -20,4 +20,12 @@ export const routes: Routes = [
     loadComponent: () => import('./new/new-detail/new-detail.component').then(m => m.NewDetailComponent),
     resolve: { dailyImage: dailyImageDate }
   },
+  {
+    path: 'counter',
+    loadComponent: () => import('./counter/counter.component').then(m => m.CounterComponent),
+  },
+  {
+    path: 'input',
+    loadComponent: () => import('./input/input.component').then(m => m.InputComponent),
+  },
 ];

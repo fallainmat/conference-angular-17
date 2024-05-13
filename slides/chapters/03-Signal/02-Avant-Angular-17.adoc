@@ -1,0 +1,10 @@
+[%auto-animate]
+=== Avant Angular 17
+
+[%auto-animate]
+=== Avant Angular 17
+
+* Utilisation des *Directives Structurelle*
+* Provenant du *CommonModule*
+
+=== !

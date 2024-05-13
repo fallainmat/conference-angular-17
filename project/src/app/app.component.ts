@@ -13,5 +13,5 @@ import {MatAnchor} from "@angular/material/button";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Angular change de logo mais pas que !';
+  title = 'change de logo mais pas que !';
 }

@@ -29,7 +29,7 @@ export class OldHomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    var date = new Date();
+    const date = new Date();
     date.setMonth(date.getMonth() - 1);
     this.sub.add(this.nasaService.getListOfDailyImages(date).subscribe())
   }
