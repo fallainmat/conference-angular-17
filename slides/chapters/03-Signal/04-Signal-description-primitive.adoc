@@ -1,0 +1,13 @@
+[%auto-animate]
+=== Signal description primitive
+
+Les 3 primitives de Signal sont :
+
+schema:
+- signal
+- computed
+- effect
+
+[%auto-animate]
+
+=== !

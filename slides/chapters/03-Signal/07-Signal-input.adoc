@@ -1,0 +1,12 @@
+[%auto-animate]
+=== HttpClient
+
+Signal Input
+
+Nouvelle façon d'utiliser l'input dans un composant enfant. input()
+
+Pourquoi utiliser input() au lieu du décorateur @Input() ?
+
+[%auto-animate]
+
+=== !

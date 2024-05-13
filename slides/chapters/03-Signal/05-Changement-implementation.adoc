@@ -1,0 +1,10 @@
+[%auto-animate]
+=== Visuel des différentes implémentations
+
+schema:
+- Signal
+- Angular
+
+[%auto-animate]
+
+=== !

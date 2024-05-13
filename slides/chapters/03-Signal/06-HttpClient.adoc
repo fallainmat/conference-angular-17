@@ -1,0 +1,16 @@
+[%auto-animate]
+=== HttpClient
+
+Pourquoi je vous parle d'HttpClient ?
+
+HttpClient fonctionne avec les observables, donc subscribe etc etc. Donc la cohabitation Signal/Observable est obligatoire.
+
+
+toSignal();
+
+toObservable();
+
+
+[%auto-animate]
+
+=== !

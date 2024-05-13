@@ -1,10 +1,12 @@
 [%auto-animate]
-=== Avant Angular 17
+=== Avant Angular 16
+
+ZoneJS et la detection de changement fonctionnait comme ça.
+
+schema:
+  - ZoneJS
+  - Angular
 
 [%auto-animate]
-=== Avant Angular 17
-
-* Utilisation des *Directives Structurelle*
-* Provenant du *CommonModule*
 
 === !

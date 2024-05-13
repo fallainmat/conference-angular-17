@@ -1,0 +1,12 @@
+[%auto-animate]
+=== Après Angular 16
+
+Signal et la detection de changement fonctionnait comme ça.
+
+schema:
+- Signal
+- Angular
+
+[%auto-animate]
+
+=== !

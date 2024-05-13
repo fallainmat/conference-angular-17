@@ -1,0 +1,15 @@
+[%auto-animate]
+=== HttpClient
+
+Signal queries
+
+On dénombre 2 types de Query :
+
+- View Queries.
+- Content Queries.
+
+View remplace ViewChild et Content remplace ContentChild.
+
+[%auto-animate]
+
+=== !
