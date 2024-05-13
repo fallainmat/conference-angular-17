@@ -1,4 +1,4 @@
-import {NgIf} from "@angular/common";
+
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
@@ -15,11 +15,10 @@ import {DailyImageModel} from "../../../core/model/nasa.model";
     MatCardHeader,
     MatCardSubtitle,
     MatCardTitle,
-    NgIf,
     RouterLink
-  ],
+],
   templateUrl: './new-card.component.html',
-  styleUrl: './new-card.component.scss',
+  styleUrl: './new-card.component.scss'
 })
 export class NewCardComponent {
   dailyImage = input.required<DailyImageModel>();
