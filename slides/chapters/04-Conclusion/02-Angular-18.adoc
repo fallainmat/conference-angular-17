@@ -1,0 +1,17 @@
+=== Pour aller plus loin
+
+* Nouveaux builder [ESBuild, Vite]
+* Builder SSR 
+* View Transitions API
+* Deux nouveau hook de cycle de vie (_afterRender_,_afterNextRender_)
+* Standalone
+
+=== Et Angular 18 ?
+
+=== !
+
+* Redirection de route avec fonction
+* Optimisation du compiler Ivy
+* Nouvelle API ng-template
+
+

@@ -1,5 +1,4 @@
 [.columns]
-[.qui]
 === Qui sommes nous ? 
 
 [.column.is-half]
