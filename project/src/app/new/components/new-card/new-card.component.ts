@@ -28,8 +28,10 @@ import {tap} from "rxjs";
 export class NewCardComponent {
   dailyImage = input.required<DailyImageModel>();
 
+/*
   testDailyImage = toSignal(this.newNasaService.getDailyImageByDate(this.newNasaService.formatISODate(new Date())).pipe(tap((test) =>
     console.log(test))));
+*/
 
   constructor(private newNasaService: NewNasaService) {
   }
