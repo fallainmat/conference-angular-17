@@ -1,13 +1,98 @@
 [%auto-animate]
-=== Signal description primitive
+=== Les primitives de Signal
 
-Les 3 primitives de Signal sont :
+Deux Types de Signaux
 
-schema:
-- signal
-- computed
-- effect
+* Writable
+* Read-only
 
 [%auto-animate]
+=== Signal Writable
+
+[%auto-animate]
+=== Signal Writable
+
+* Signal
+
+[%auto-animate]
+=== !
+
+[source,typescript,linenums, data-id=component]
+----
+...
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  count: WritableSignal<number> = signal(0);
+}
+----
 
 === !
+
+[source,html,linenums]
+----
+<p>{{count()}}</p>
+----
+
+[%auto-animate]
+=== Signaux Read-only
+
+[%auto-animate]
+=== Signaux Read-only
+
+* Computed
+* Effect
+
+[%auto-animate]
+=== Computed
+
+=== !
+
+[source,typescript,linenums, data-id=component]
+----
+...
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  count: WritableSignal<number> = signal(0);
+  doubleCount: Signal<number> = computed(() => this.count() * 2);
+}
+----
+
+=== !
+
+[source,html,linenums]
+----
+<p>{{doubleCount()}}</p>
+----
+
+[%auto-animate]
+=== Effect
+
+[%auto-animate]
+=== !
+
+[source,typescript,linenums,data-id=component]
+----
+...
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  count: WritableSignal<number> = signal(0);
+
+  constructor() {
+    effect(() => {
+      console.log(this.count());
+    });
+  }
+}
+----

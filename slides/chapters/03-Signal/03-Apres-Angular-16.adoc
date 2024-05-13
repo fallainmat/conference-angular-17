@@ -1,0 +1,14 @@
+[%auto-animate]
+=== Après Signal
+
+Signal arrive avec une nouvelle approche de détection de changement
+
+[%auto-animate]
+=== Après Signal
+
+Lorsqu'un signal est modifié, il va émettre qu'auprès des composants qui consomment ce signal
+
+[%auto-animate]
+=== Après Signal
+
+image::signal.png[]

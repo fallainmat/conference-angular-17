@@ -1,0 +1,38 @@
+[%auto-animate]
+=== HttpClient
+
+[%auto-animate]
+=== HttpClient
+
+Pourquoi je vous parle d'HttpClient ?
+
+HttpClient fonctionne toujours avec les observables, donc subscribe etc etc.
+
+[%auto-animate]
+=== !
+
+* toSignal();
+* toObservable();
+
+[%auto-animate]
+=== !
+
+[source,typescript,linenums,data-id=component]
+----
+...
+import {toSignal} from "@angular/core/rxjs-interop";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class NewNasaService {
+  constructor(private httpClient: HttpClient) {
+  }
+
+  getDailyImageByDate(date: string): Signal<DailyImageModel | undefined> {
+    return toSignal(this.httpClient.get<DailyImageModel>(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${this.api_key}`));
+  }
+}
+----
+
+

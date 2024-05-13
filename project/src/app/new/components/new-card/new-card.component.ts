@@ -1,9 +1,12 @@
-
-import {ChangeDetectionStrategy, Component, input} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {RouterLink} from "@angular/router";
 import {DailyImageModel} from "../../../core/model/nasa.model";
+import {NewNasaService} from "../../../core/new/new-nasa.service";
+import {AsyncPipe, JsonPipe} from "@angular/common";
+import {toSignal} from "@angular/core/rxjs-interop";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'app-new-card',
@@ -15,11 +18,19 @@ import {DailyImageModel} from "../../../core/model/nasa.model";
     MatCardHeader,
     MatCardSubtitle,
     MatCardTitle,
-    RouterLink
-],
+    RouterLink,
+    JsonPipe,
+    AsyncPipe
+  ],
   templateUrl: './new-card.component.html',
   styleUrl: './new-card.component.scss'
 })
 export class NewCardComponent {
   dailyImage = input.required<DailyImageModel>();
+
+  testDailyImage = toSignal(this.newNasaService.getDailyImageByDate(this.newNasaService.formatISODate(new Date())).pipe(tap((test) =>
+    console.log(test))));
+
+  constructor(private newNasaService: NewNasaService) {
+  }
 }

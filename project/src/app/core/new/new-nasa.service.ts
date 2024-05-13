@@ -25,7 +25,7 @@ export class NewNasaService {
     return this.httpClient.get<DailyImageModel>(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${this.api_key}`);
   }
 
-  private formatISODate(date: Date): string {
+  formatISODate(date: Date): string {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const day = date.getDate().toString().padStart(2, '0');

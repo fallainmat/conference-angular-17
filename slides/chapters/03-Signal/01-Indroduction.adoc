@@ -5,7 +5,7 @@
 Signal est arrivé avec Angular 16 suite à la RFC https://github.com/angular/angular/discussions/49685.
 ****
 
-include::02-Avant-Angular-17.adoc[]
-include::03-Apres-Angular-17.adoc[]
-
-=== Demo
+include::02-Avant-Angular-16.adoc[]
+include::03-Apres-Angular-16.adoc[]
+include::04-Signal-description-primitive.adoc[]
+include::05-HttpClient.adoc[]
