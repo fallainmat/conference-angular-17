@@ -420,7 +420,7 @@ Tech Lead Front</p></div></div></div>
 <div class="paragraph"><p>Rémi PACHET<br>
 Tech Lead Front</p></div></div></div></div></section><section><div class="slide-content"><div class="imageblock"><img src="assets/onepoint_rvb_baseline.png" alt="onepoint rvb baseline"></div></div></section><section id="_pourquoi_cette_conf" class="columns"><h2>Pourquoi cette Conf ?</h2><div class="slide-content"><div class="imageblock column is-one-third"><img src="assets/logo_angular_js.png" alt="logo angular js"></div>
 <div class="imageblock column is-one-third"><img src="assets/logo_angular.png" alt="logo angular"></div>
-<div class="imageblock column is-one-third"><img src="assets/logo_angular_17.png" alt="logo angular 17"></div></div></section><section id="_sommaire"><h2>Sommaire</h2><div class="slide-content"><div class="ulist"><ul><li><p>Control-flow</p></li><li><p>Signal</p></li></ul></div></div></section></section>
+<div class="imageblock column is-one-third"><img src="assets/logo_angular_17.png" alt="logo angular 17"></div></div></section><section id="_nouveautés"><h2>Nouveautés</h2><div class="slide-content"><div class="ulist"><ul><li><p>Standalone</p></li><li><p>Nouveaux builder [ESBuild, Vite]</p></li><li><p>Builder SSR</p></li><li><p>View Transitions API</p></li><li><p>Deux nouveau hook de cycle de vie (<em>afterRender</em>,<em>afterNextRender</em>)</p></li><li><p>Control-flow</p></li><li><p>Signal</p></li></ul></div></div></section><section id="_sommaire"><h2>Sommaire</h2><div class="slide-content"><div class="ulist"><ul><li><p>Control-flow</p></li><li><p>Signal</p></li></ul></div></div></section></section>
 <section><section id="_control_flow"><h2>Control Flow</h2><div class="slide-content"><aside class="notes"><div class="paragraph"><p>Angular 17, sorti en novembre 2023, introduit une refonte totale du Control Flow.
 Les directive structurelle sont remplacés par @if et @for etc.</p></div></aside></div></section><section id="_avant_angular_17" data-auto-animate><h2>Avant Angular 17</h2></section><section id="_avant_angular_17_2" data-auto-animate><h2>Avant Angular 17</h2><div class="slide-content"><div class="ulist"><ul><li><p>Utilisation des <strong>Directives Structurelle</strong></p></li><li><p>Provenant du <strong>CommonModule</strong></p></li></ul></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">&lt;h1 *ngIf="planet" class="name"&gt;{{ planet.name }}&lt;/h1&gt;</code></pre></div></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">&lt;ng-template [ngIf]="planet"&gt;
   &lt;h1 class="name"&gt;{{planet.name}}&lt;/h1&gt;
@@ -628,8 +628,54 @@ await deferBlocks[0].render(DeferBlockState.Loading);
 await deferBlocks[0].render(DeferBlockState.Complete);
 ...
 await deferBlocks[0].render(DeferBlockState.Error);</code></pre></div></div></div></section><section id="_demo"><h2>Demo</h2></section></section>
-<section><section id="_signal"><h2>Signal</h2><div class="slide-content"><aside class="notes"><div class="paragraph"><p>Signal est arrivé avec Angular 16 suite à la RFC <a href="https://github.com/angular/angular/discussions/49685" class="bare">https://github.com/angular/angular/discussions/49685</a>.</p></div></aside></div></section><section id="_avant_angular_17_3" data-auto-animate><h2>Avant Angular 17</h2></section><section id="_avant_angular_17_4" data-auto-animate><h2>Avant Angular 17</h2><div class="slide-content"><div class="ulist"><ul><li><p>Utilisation des <strong>Directives Structurelle</strong></p></li><li><p>Provenant du <strong>CommonModule</strong></p></li></ul></div></div></section><section></section><section id="_demo_2"><h2>Demo</h2></section></section>
-<section><section id="_conclusion"><h2>Conclusion</h2></section><section id="_pour_aller_plus_loin"><h2>Pour aller plus loin</h2><div class="slide-content"><div class="ulist"><ul><li><p>Nouveaux builder [ESBuild, Vite]</p></li><li><p>Builder SSR</p></li><li><p>View Transitions API</p></li><li><p>Deux nouveau hook de cycle de vie (<em>afterRender</em>,<em>afterNextRender</em>)</p></li><li><p>Standalone</p></li></ul></div></div></section><section id="_et_angular_18"><h2>Et Angular 18 ?</h2></section><section><div class="slide-content"><div class="ulist"><ul><li><p>Redirection de route avec fonction</p></li><li><p>Optimisation du compiler Ivy</p></li><li><p>Nouvelle API ng-template</p></li></ul></div></div></section><section id="_remerciement" class="columns"><h2>Remerciement</h2><div class="slide-content"><div class="imageblock column is-half"><img src="assets/bordeaux_js.jpg" alt="bordeaux js"></div>
+<section><section id="_signal"><h2>Signal</h2><div class="slide-content"><aside class="notes"><div class="paragraph"><p>Signal est arrivé avec Angular 16 suite à la RFC <a href="https://github.com/angular/angular/discussions/49685" class="bare">https://github.com/angular/angular/discussions/49685</a>.</p></div></aside></div></section><section id="_avant_signal" data-auto-animate><h2>Avant Signal</h2><div class="slide-content"><div class="paragraph"><p>ZoneJs est utilisé pour la détection de changement.</p></div></div></section><section id="_avant_signal_2" data-auto-animate><h2>Avant Signal</h2><div class="slide-content"><div class="paragraph"><p>Mais ou est le changement ?</p></div></div></section><section id="_avant_signal_3"><h2>Avant Signal</h2><div class="slide-content"><div class="imageblock"><img src="assets/zonejs.png" alt="zonejs"></div></div></section><section id="_après_signal" data-auto-animate><h2>Après Signal</h2><div class="slide-content"><div class="paragraph"><p>Signal arrive avec une nouvelle approche de détection de changement</p></div></div></section><section id="_après_signal_2" data-auto-animate><h2>Après Signal</h2><div class="slide-content"><div class="paragraph"><p>Lorsqu&#8217;un signal est modifié, il va émettre qu&#8217;auprès des composants qui consomment ce signal</p></div></div></section><section id="_après_signal_3" data-auto-animate><h2>Après Signal</h2><div class="slide-content"><div class="imageblock"><img src="assets/signal.png" alt="signal"></div></div></section><section id="_les_primitives_de_signal" data-auto-animate><h2>Les primitives de Signal</h2><div class="slide-content"><div class="paragraph"><p>Deux Types de Signaux</p></div>
+<div class="ulist"><ul><li><p>Writable</p></li><li><p>Read-only</p></li></ul></div></div></section><section id="_signal_writable" data-auto-animate><h2>Signal Writable</h2></section><section id="_signal_writable_2" data-auto-animate><h2>Signal Writable</h2><div class="slide-content"><div class="ulist"><ul><li><p>Signal</p></li></ul></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="component"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="" data-lang="typescript">...
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  count: WritableSignal&lt;number&gt; = signal(0);
+}</code></pre></div></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">&lt;p&gt;{{count()}}&lt;/p&gt;</code></pre></div></div></div></section><section id="_signaux_read_only" data-auto-animate><h2>Signaux Read-only</h2></section><section id="_signaux_read_only_2" data-auto-animate><h2>Signaux Read-only</h2><div class="slide-content"><div class="ulist"><ul><li><p>Computed</p></li><li><p>Effect</p></li></ul></div></div></section><section id="_computed" data-auto-animate><h2>Computed</h2></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="component"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="" data-lang="typescript">...
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  count: WritableSignal&lt;number&gt; = signal(0);
+  doubleCount: Signal&lt;number&gt; = computed(() =&gt; this.count() * 2);
+}</code></pre></div></div></div></section><section><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">&lt;p&gt;{{doubleCount()}}&lt;/p&gt;</code></pre></div></div></div></section><section id="_effect" data-auto-animate><h2>Effect</h2></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="component"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="" data-lang="typescript">...
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  count: WritableSignal&lt;number&gt; = signal(0);
+
+  constructor() {
+    effect(() =&gt; {
+      console.log(this.count());
+    });
+  }
+}</code></pre></div></div></div></section><section id="_httpclient" data-auto-animate><h2>HttpClient</h2></section><section id="_httpclient_2" data-auto-animate><h2>HttpClient</h2><div class="slide-content"><div class="paragraph"><p>Pourquoi je vous parle d&#8217;HttpClient ?</p></div>
+<div class="paragraph"><p>HttpClient fonctionne toujours avec les observables, donc subscribe etc etc.</p></div></div></section><section data-auto-animate><div class="slide-content"><div class="ulist"><ul><li><p>toSignal();</p></li><li><p>toObservable();</p></li></ul></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="component"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="" data-lang="typescript">...
+import {toSignal} from "@angular/core/rxjs-interop";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class NewNasaService {
+  constructor(private httpClient: HttpClient) {
+  }
+
+  getDailyImageByDate(date: string): Signal&lt;DailyImageModel | undefined&gt; {
+    return toSignal(this.httpClient.get&lt;DailyImageModel&gt;(`https://api.nasa.gov/planetary/apod?date=${date}&amp;api_key=${this.api_key}`));
+  }
+}</code></pre></div></div></div></section></section>
+<section><section id="_conclusion"><h2>Conclusion</h2></section><section id="_pour_aller_plus_loin"><h2>Pour aller plus loin</h2></section><section id="_et_angular_18"><h2>Et Angular 18 ?</h2></section><section><div class="slide-content"><div class="ulist"><ul><li><p>Redirection de route avec fonction</p></li><li><p>Optimisation du compiler Ivy</p></li><li><p>Nouvelle API ng-template</p></li></ul></div></div></section><section id="_remerciement" class="columns"><h2>Remerciement</h2><div class="slide-content"><div class="imageblock column is-half"><img src="assets/bordeaux_js.jpg" alt="bordeaux js"></div>
 <div class="imageblock column is-half"><img src="assets/onepoint_rvb_baseline.png" alt="onepoint rvb baseline"></div></div></section></section></div></div><script src="node_modules/reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
@@ -1288,7 +1334,7 @@ Reveal.addEventListener('resize', function () {
   return RevealHighlight;
 
 }));
-
+        
 hljs.configure({
   ignoreUnescapedHTML: true,
 });

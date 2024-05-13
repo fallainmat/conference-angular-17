@@ -5,7 +5,8 @@
 include::02-Présentation.adoc[]
 include::03-Présentation-onepoint.adoc[]
 include::04-Pourquoi.adoc[]
-include::05-Sommaire.adoc[]
+include::05-Nouveautés-Angular.adoc[]
+include::06-Sommaire.adoc[]
 
 
 

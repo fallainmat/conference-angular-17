@@ -1,0 +1,10 @@
+=== Nouveautés
+
+* Standalone
+* Nouveaux builder [ESBuild, Vite]
+* Builder SSR
+* View Transitions API
+* Deux nouveau hook de cycle de vie (_afterRender_,_afterNextRender_)
+* Control-flow
+* Signal
+
