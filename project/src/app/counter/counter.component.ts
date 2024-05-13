@@ -1,15 +1,15 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed, DestroyRef,
+  computed,
   effect,
-  inject, Injector,
+  inject, Injector, OnInit,
   Signal,
   signal, untracked,
   WritableSignal
 } from '@angular/core';
 import {MatButton} from "@angular/material/button";
-import {BehaviorSubject, interval, map, Observable, repeatWhen, tap} from "rxjs";
+import {BehaviorSubject, map, Observable} from "rxjs";
 import {AsyncPipe, NgIf} from "@angular/common";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {NewNasaService} from "../core/new/new-nasa.service";
@@ -28,18 +28,22 @@ import {CounterChildComponent} from "./components/counter-child/counter-child.co
   styleUrl: './counter.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CounterComponent {
+export class CounterComponent implements OnInit {
   injector: Injector = inject(Injector);
   count: WritableSignal<number> = signal(0);
-  doubleCount: Signal<number> = computed(() => this.count() * 2);
-/*  showCount = signal(false);
+  doubleCount: Signal<number> = computed(() => this.count() * 2, { equal: () => this.stopCount });
+
+
+  showCount = signal(false);
   conditionalCount = computed(() => {
     if (this.showCount()) {
       return `Le count est ${this.count()}.`;
     } else {
-      return 'Je ne veux plus voir ce count';
+      return 'Je ne vois plus ce count';
     }
-  });*/
+  });
+
+
   countObs$ = new BehaviorSubject(0);
   doubleCountObs$: Observable<number> = this.countObs$.pipe(map(value => value * 2));
   countObs: number = 0;
@@ -54,17 +58,17 @@ export class CounterComponent {
     });
 
     effect(() => {
-      console.log(this.count());
-    });
+      console.log(untracked(this.count));
+      this.injector.get(NewNasaService).getListOfDailyImages(new Date()).subscribe();
+    }, {injector: this.injector});
+  }
+
+  ngOnInit() {
   }
 
   incrementValue() {
     this.count.update((value) => value + 1);
     this.countObs$.next(this.countObs + 1);
-
-    effect(() => {
-      this.injector.get(NewNasaService).getListOfDailyImages(new Date()).subscribe();
-    }, { injector: this.injector });
   }
 
   decrementValue() {
@@ -77,13 +81,13 @@ export class CounterComponent {
     this.countObs$.next(0)
   }
 
-/*  changeConditionalDouble() {
+  changeConditionalDouble() {
     this.showCount.update((value) => !value);
-  }*/
+  }
 
-/*  changeStopCount() {
+  changeStopCount() {
     this.stopCount = !this.stopCount
-  }*/
+  }
   changeDisplayChild() {
     this.displayChild = !this.displayChild;
   }

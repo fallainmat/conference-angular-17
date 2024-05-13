@@ -4,6 +4,9 @@ import {MatButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {DailyImageModel} from "../../core/model/nasa.model";
+import {toSignal, toObservable} from "@angular/core/rxjs-interop";
+import {map, Observable, tap} from "rxjs";
+import {NewNasaService} from "../../core/new/new-nasa.service";
 
 
 @Component({
@@ -25,4 +28,10 @@ import {DailyImageModel} from "../../core/model/nasa.model";
 })
 export class NewDetailComponent {
   dailyImage = input.required<DailyImageModel>();
+  testDailyImage = toSignal(this.newNasaService.getDailyImageByDate(this.newNasaService.formatISODate(new Date())));
+  testDailyImage$: Observable<string | undefined>;
+
+  constructor(private newNasaService: NewNasaService) {
+    this.testDailyImage$ = toObservable(this.testDailyImage).pipe(map((test) => test?.url));
+  }
 }
