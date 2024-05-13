@@ -208,7 +208,7 @@ await deferBlocks[0].render(DeferBlockState.Error);
 
 [%auto-animate]
 === !
-[source,typescript,linenums, data-id=defer-test, highlight=13..20]
+[source,typescript,linenums, data-id=defer-test, highlight=10;13..20]
 ----
 beforeEach(() => {
   TestBed.configureTestingModule({
