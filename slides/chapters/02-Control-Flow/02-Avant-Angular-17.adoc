@@ -4,8 +4,8 @@
 [%auto-animate]
 === Avant Angular 17
 
-* Utilisation des *Directives Structurelle*
-* Provenant du *CommonModule*
+Utilisation des *Directives Structurelle* +
+Provenant du *CommonModule*
 
 === !
 
