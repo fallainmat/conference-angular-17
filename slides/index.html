@@ -464,7 +464,8 @@ export class AppComponent {
   planet = {
     name = "Neptune"
   };
-}</code></pre></div></div></div></section><section id="_après_angular_17" data-auto-animate><h2>Après Angular 17</h2></section><section id="_après_angular_17_2" data-auto-animate><h2>Après Angular 17</h2><div class="slide-content"><div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Control Flow est en version developer preview. Il est prêt à être essayé, mais peut changer avant de devenir stable.</td></tr></table></div></div></section><section id="_après_angular_17_3" data-auto-animate><h2>Après Angular 17</h2><div class="slide-content"><div class="ulist"><ul><li><p><span class="line-through">Utilisation des <strong>Directives Structurelle</strong></span></p></li><li><p><span class="line-through">importation du <strong>CommonModule</strong></span></p></li></ul></div></div></section><section id="_pourquoi_ce_changement" data-auto-animate><h2>Pourquoi ce changement ?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Passage à une syntaxe se rapprochant de JS</p></li><li><p>passage au <em>zoneless</em> plus simple</p></li></ul></div>
+}</code></pre></div></div></div></section><section id="_après_angular_17" data-auto-animate><h2>Après Angular 17</h2></section><section id="_après_angular_17_2" data-auto-animate><h2>Après Angular 17</h2><div class="slide-content"><div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Control Flow est en version developer preview. Il est prêt à être essayé, mais peut changer avant de devenir stable.</td></tr></table></div></div></section><section id="_après_angular_17_3" data-auto-animate><h2>Après Angular 17</h2><div class="slide-content"><div class="paragraph"><p><span class="line-through">Utilisation des <strong>Directives Structurelle</strong></span><br>
+<span class="line-through">importation du <strong>CommonModule</strong></span></p></div></div></section><section id="_pourquoi_ce_changement" data-auto-animate><h2>Pourquoi ce changement ?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Passage à une syntaxe se rapprochant de JS</p></li><li><p>passage au <em>zoneless</em> plus simple</p></li></ul></div>
 <aside class="notes"><div class="paragraph"><p>Ce dernier point est intéressant. Aujourd’hui les applications Angular repose sur zone.js pour gérer leurs détection de changement, dans un avenir très proche cette librairie externe ne sera plus nécessaire grâce aux Signal.
 Cependant rendre cela possible n’est pas une mince affaire pour l’équipe d’Angular car un changement des directives structurelle(ngIf, ngFor etc) était nécessaire.
 Ils ont préféré opté pour un changement total de syntaxe et en ont profité pour apporter de nouvelles choses comme le {:empty} du {:for} par exemple.</p></div></aside></div></section><section id="_nouvelle_syntaxe"><h2>Nouvelle Syntaxe</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="" data-lang="html">@if (planet) {
@@ -609,7 +610,7 @@ await deferBlocks[0].render(DeferBlockState.Loading);
 ...
 await deferBlocks[0].render(DeferBlockState.Complete);
 ...
-await deferBlocks[0].render(DeferBlockState.Error);</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer-test"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="13,14,15,16,17,18,19,20" data-lang="typescript">beforeEach(() =&gt; {
+await deferBlocks[0].render(DeferBlockState.Error);</code></pre></div></div></div></section><section data-auto-animate><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight" data-id="defer-test"><code class="language-typescript hljs" data-noescape="true" data-line-numbers="10,13,14,15,16,17,18,19,20" data-lang="typescript">beforeEach(() =&gt; {
   TestBed.configureTestingModule({
     deferBlockBehavior: DeferBlockBehavior.Playthrough
   });
@@ -1336,7 +1337,7 @@ Reveal.addEventListener('resize', function () {
   return RevealHighlight;
 
 }));
-        
+
 hljs.configure({
   ignoreUnescapedHTML: true,
 });

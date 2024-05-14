@@ -8,9 +8,8 @@ WARNING: Control Flow est en version developer preview. Il est prêt à être es
 
 [%auto-animate]
 === Après Angular 17
-
-* [.line-through]#Utilisation des *Directives Structurelle*#
-* [.line-through]#importation du *CommonModule*#
+[.line-through]#Utilisation des *Directives Structurelle*# +
+[.line-through]#Provenant du *CommonModule*#
 
 [%auto-animate]
 === Pourquoi ce changement ?
