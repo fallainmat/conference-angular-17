@@ -2,3 +2,9 @@
 === Signal Model
 
 Nouvelle façon d'utiliser l'input/output dans un seul "signal". plus besoin de faire un set/update pour changer la valeur.
+
+[.notes]
+****
+*Intervention Rémi* +
+La fin du @Input @Output ?
+****

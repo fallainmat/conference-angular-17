@@ -37,6 +37,12 @@ export class AppComponent {
 <p>{{count()}}</p>
 ----
 
+[.notes]
+****
+*Intervention Rémi* +
+Pourquoi les parenthèses ?
+****
+
 [%auto-animate]
 === Signaux Read-only
 
@@ -96,3 +102,9 @@ export class AppComponent {
   }
 }
 ----
+
+[.notes]
+****
+*Intervention Rémi* +
+Possible de mettre un effect hors constructor ?
+****
