@@ -24,47 +24,6 @@ Provenant du *CommonModule*
 </ng-template>
 ----
 
-[%auto-animate]
-=== !
-
-[source,typescript,linenums, data-id=component]
-----
-...
-import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule],
-  templateUrl: './app.component.html',
-})
-export class AppComponent {
-  planet = {
-    name = "Neptune"
-  };
-}
-----
-
-[%auto-animate]
-=== !
-
-[source,typescript,linenums, data-id=component, highlight=2]
-----
-...
-import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule],
-  templateUrl: './app.component.html',
-})
-export class AppComponent {
-  planet = {
-    name = "Neptune"
-  };
-}
-----
 
 [%auto-animate]
 === !

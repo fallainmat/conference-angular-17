@@ -68,9 +68,10 @@
 
 [.notes]
 ****
+*Intervention Florian* +
 Insister sur la présence du track qui maintenant est obligatoire
 
-Le bloc @for nécessite une expression de suivi. Angular utilise la valeur de cette expression comme une identité unique pour chaque élément. Cette identité permet au framework d'effectuer l'ensemble minimal d'opérations DOM nécessaires après l'ajout, la suppression ou le réordonnancement d'éléments.
+Le bloc @for nécessite une *expression de suivi*. Angular utilise la valeur de cette expression comme une identité unique pour chaque élément. Cette identité permet au framework d'effectuer l'ensemble minimal d'opérations DOM nécessaires après l'ajout, la suppression ou le réordonnancement d'éléments.
 ****
 
 [%auto-animate]
@@ -94,6 +95,12 @@ Le bloc @for nécessite une expression de suivi. Angular utilise la valeur de ce
     <h1 class="name">{{ planet.name }} - {{$index}} </h1>
 }
 ----
+
+[.notes]
+****
+Il est quand-même possible de variabiliser la $index si besoin + 
+par exemple pour des for imbriqué
+****
 
 === !
 * *$index* : l'index de l'élément courant dans la collection.
@@ -150,3 +157,8 @@ Le bloc @for nécessite une expression de suivi. Angular utilise la valeur de ce
   }
 }
 ----
+
+[.notes]
+****
+ne pas s'étaler là dessus juste faire remarquer que plus élégant au niveau syntaxe
+****

@@ -18,9 +18,8 @@ WARNING: Control Flow est en version developer preview. Il est prêt à être es
 
 [.notes]
 ****
+*Intervention Florian* +
 Ce dernier point est intéressant. Aujourd’hui les applications Angular repose sur zone.js pour gérer leurs détection de changement, dans un avenir très proche cette librairie externe ne sera plus nécessaire grâce aux Signal.
-Cependant rendre cela possible n’est pas une mince affaire pour l’équipe d’Angular car un changement des directives structurelle(ngIf, ngFor etc) était nécessaire.
-Ils ont préféré opté pour un changement total de syntaxe et en ont profité pour apporter de nouvelles choses comme le {:empty} du {:for} par exemple.
 ****
 
 === Nouvelle Syntaxe
@@ -46,4 +45,5 @@ Ils ont préféré opté pour un changement total de syntaxe et en ont profité 
 [.notes]
 ****
  Faire la démo live de la commande
+ ng g @angular/core:control-flow
 ****

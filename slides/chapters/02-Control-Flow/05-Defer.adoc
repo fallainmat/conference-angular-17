@@ -7,6 +7,11 @@
 === !
 WARNING: En SSR les *defer* ne seront jamais déclenchées.
 
+[.notes]
+****
+  En SSR les defer seront ignorés et le bloc @placeholder s'afficherons
+****
+
 === !
 
 [source,html,linenums, data-id=defer]
@@ -28,24 +33,6 @@ Deux options pour configurer le déclenchement :
 *on* spécifie une condition à l'aide d'un déclencheur disponible dans Angular.
 
 Il est possible de définir plusieurs déclencheurs d'événements à la fois. 
-
-=== !
-[.notes]
-****
-*viewport* derrière se cache un intersection observer
-*interaction* écoute les événements "click" et "keydown".
-*hover* écoute les événements mouseenter et focusin.
-*timer* en utilisant setTimeout.
-****
-
-* *idle* : chargement quand le navigateur est inactif.
-* *viewport* : chargement du bloc lorsque l'élément devient visible dans la fenêtre du navigateur. 
-* *interaction* : chargement lorsque l'utilisateur interagit avec l'élément.
-* *hover* : chargement du bloc lorsque l'utilisateur survole l'élément.
-* *immediate* : chargement immédiat de l'élément N'affiche pas de placeholder, même s'il en existe un.
-* *timer* : chargement du bloc après une durée donnée.
-
-
 
 === Chargement sur un Timer 
 
@@ -85,12 +72,33 @@ Il est possible de définir plusieurs déclencheurs d'événements à la fois.
   }
 }
 ----
+[.notes]
+****
+pas de possibilité de offset pour le moment 
+****
+
+=== !
+[.notes]
+****
+*viewport* derrière se cache un intersection observer +
+*interaction* écoute les événements "click" et "keydown". +
+*hover* écoute les événements mouseenter et focusin. +
+*timer* en utilisant setTimeout. +
+****
+
+* *idle* : chargement quand le navigateur est inactif.
+* *viewport* : chargement du bloc lorsque l'élément devient visible dans la fenêtre du navigateur. 
+* *interaction* : chargement lorsque l'utilisateur interagit avec l'élément.
+* *hover* : chargement du bloc lorsque l'utilisateur survole l'élément.
+* *immediate* : chargement immédiat de l'élément N'affiche pas de placeholder, même s'il en existe un.
+* *timer* : chargement du bloc après une durée donnée.
+
 
 === Déclencheur when
 
 *when* spécifie une condition sous la forme d'une expression qui renvoie un boolean.
 
-Lorsque cette expression devient vraie, le placeholder est remplacé par l'élément lazy loaded.
+Lorsque cette expression devient vraie, le placeholder est remplacé par l'élément à afficher.
 
 === !
 WARNING: Si la condition *when* redevient fausse, le bloc "defer" n'est pas remplacé par le bloc "placeholder". La permutation est une opération unique.
@@ -132,6 +140,12 @@ Le chargement du bloc *@defer* pouvant être rapide, il existe un risque que le 
 === Gestion des erreurs 
 
 Le bloc *@error*  permet de déclarer le contenu qui sera affiché si le chargement différé échoue.
+
+[.notes]
+****
+Ne pas trop développer dessus +
+Ne marche pas en cas d'erreur HTTP Ce n'est pas un "catch"
+****
 
 === !
 
@@ -179,9 +193,16 @@ await deferBlocks[0].render(DeferBlockState.Complete);
 await deferBlocks[0].render(DeferBlockState.Error);
 ----
 
+[.notes]
+****
+Deux options +
+Manual +
+Playthrough
+****
+
 [%auto-animate]
 === !
-[source,typescript,linenums, data-id=defer-test, highlight=8]
+[source,typescript,linenums, data-id=defer-test, highlight=10]
 ----
 beforeEach(() => {
   TestBed.configureTestingModule({
@@ -208,7 +229,7 @@ await deferBlocks[0].render(DeferBlockState.Error);
 
 [%auto-animate]
 === !
-[source,typescript,linenums, data-id=defer-test, highlight=10;13..20]
+[source,typescript,linenums, data-id=defer-test, highlight=13..20]
 ----
 beforeEach(() => {
   TestBed.configureTestingModule({
