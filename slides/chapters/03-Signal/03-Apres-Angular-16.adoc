@@ -11,4 +11,9 @@ Lorsqu'un signal est modifié, il va émettre qu'auprès des composants qui cons
 [%auto-animate]
 === Après Signal
 
+image::event.png[]
+
+[%auto-animate]
+=== Après Signal
+
 image::signal.png[]

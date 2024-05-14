@@ -1,8 +1,8 @@
-=== Pour aller plus loin
-
+[%auto-animate]
 === Et Angular 18 ?
 
-=== !
+[%auto-animate]
+=== Et Angular 18 ?
 
 * Redirection de route avec fonction
 * Optimisation du compiler Ivy

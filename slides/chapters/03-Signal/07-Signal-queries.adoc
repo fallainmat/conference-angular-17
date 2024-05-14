@@ -1,15 +1,12 @@
 [%auto-animate]
 === Signal Queries
 
-Signal queries
-
 On dénombre 2 types de Query :
 
 - View Queries.
 - Content Queries.
 
-View remplace ViewChild et Content remplace ContentChild.
-
 [%auto-animate]
+=== Signal Queries
 
-=== !
+View remplace ViewChild et Content remplace ContentChild.

@@ -1,16 +1,16 @@
 [.columns]
-=== Qui sommes nous ? 
+=== Qui sommes nous ?
 
 [.column.is-half]
 --
-image::florian_allainmat.jpg[]
+image::florian_allainmat.jpg[width=200]
 
 Florian ALLAINMAT +
 Tech Lead Front
 --
 [.column.is-half]
 --
-image::remi_pachet.jpg[]
+image::remi_pachet.jpg[width=200]
 
 Rémi PACHET +
 Tech Lead Front

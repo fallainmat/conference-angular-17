@@ -1,13 +1,15 @@
-<a *ngIf="dailyImage" [routerLink]="'detail/' + dailyImage.date">
-  <mat-card class="card">
-    <mat-card-header>
-      <mat-card-title>{{ dailyImage.title }}</mat-card-title>
-      <mat-card-subtitle>{{ dailyImage.date }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image class="card-image" [src]="dailyImage.url" [alt]="dailyImage.title">
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-</a>
+@if (dailyImage) {
+  <a [routerLink]="'detail/' + dailyImage.date">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>{{ dailyImage.title }}</mat-card-title>
+        <mat-card-subtitle>{{ dailyImage.date }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image class="card-image" [src]="dailyImage.url" [alt]="dailyImage.title">
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </a>
+}

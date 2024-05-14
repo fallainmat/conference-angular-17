@@ -8,6 +8,12 @@ ZoneJs est utilisé pour la détection de changement.
 
 Mais ou est le changement ?
 
+[%auto-animate]
 === Avant Signal
 
-image::zonejs.png[]
+image::event.png[]
+
+[%auto-animate]
+=== Avant Signal
+
+image::zone.png[]

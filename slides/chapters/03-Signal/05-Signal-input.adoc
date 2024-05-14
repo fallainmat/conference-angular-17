@@ -1,12 +1,9 @@
 [%auto-animate]
 === Signal Input
 
-Signal Input
-
 Nouvelle façon d'utiliser l'input dans un composant enfant. input()
 
-Pourquoi utiliser input() au lieu du décorateur @Input() ?
-
 [%auto-animate]
+=== Signal Input
 
-=== !
+Pourquoi utiliser input() au lieu du décorateur @Input() ?

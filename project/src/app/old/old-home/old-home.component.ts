@@ -1,4 +1,4 @@
-import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Observable, Subscription } from "rxjs";
@@ -10,12 +10,10 @@ import { OldCardComponent } from "../components/old-card/old-card.component";
   selector: 'app-old-home',
   standalone: true,
   imports: [
-    NgIf,
     AsyncPipe,
     OldCardComponent,
-    NgForOf,
     MatGridListModule
-  ],
+],
   templateUrl: './old-home.component.html',
   styleUrl: './old-home.component.scss'
 })

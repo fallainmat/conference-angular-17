@@ -2,16 +2,15 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Subscription, switchMap} from "rxjs";
 import {OldNasaService} from "../../core/old/old-nasa.service";
-import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
+import { AsyncPipe, JsonPipe } from "@angular/common";
 
 @Component({
   selector: 'app-old-detail',
   standalone: true,
   imports: [
-    NgIf,
     JsonPipe,
     AsyncPipe
-  ],
+],
   templateUrl: './old-detail.component.html',
   styleUrl: './old-detail.component.scss'
 })

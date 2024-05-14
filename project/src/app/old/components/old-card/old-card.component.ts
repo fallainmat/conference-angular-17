@@ -1,4 +1,4 @@
-import { JsonPipe, NgIf } from "@angular/common";
+import { JsonPipe } from "@angular/common";
 import { Component, Input } from '@angular/core';
 import { MatButton } from "@angular/material/button";
 import {
@@ -16,7 +16,6 @@ import { DailyImageModel } from "../../../core/model/nasa.model";
   selector: 'app-old-card',
   standalone: true,
   imports: [
-    NgIf,
     JsonPipe,
     MatCard,
     MatCardTitle,
@@ -26,7 +25,7 @@ import { DailyImageModel } from "../../../core/model/nasa.model";
     MatCardActions,
     MatButton,
     RouterLink
-  ],
+],
   templateUrl: './old-card.component.html',
   styleUrl: './old-card.component.scss'
 })

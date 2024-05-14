@@ -9,7 +9,7 @@ Pourquoi je vous parle d'HttpClient ?
 HttpClient fonctionne toujours avec les observables, donc subscribe etc etc.
 
 [%auto-animate]
-=== !
+=== HttpClient
 
 * toSignal()
 * toObservable()

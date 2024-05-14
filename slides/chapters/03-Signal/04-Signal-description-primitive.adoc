@@ -1,5 +1,5 @@
 [%auto-animate]
-=== Les primitives de Signal
+=== Les Signaux
 
 Deux Types de Signaux
 

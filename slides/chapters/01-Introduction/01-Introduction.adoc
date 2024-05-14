@@ -1,9 +1,10 @@
 [.columns]
-== Introduction
+== !
 
+image::onepoint_rvb_baseline.png[]
 
-include::02-Présentation.adoc[]
 include::03-Présentation-onepoint.adoc[]
+include::02-Présentation.adoc[]
 include::04-Pourquoi.adoc[]
 include::05-Nouveautés-Angular.adoc[]
 include::06-Sommaire.adoc[]

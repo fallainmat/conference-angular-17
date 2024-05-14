@@ -15,10 +15,10 @@ export class CounterChildComponent {
       console.log('timer', this.timer());
     }, 1000);
 
-    onCleanup(() => {
+/*    onCleanup(() => {
       clearInterval(timerId)
-    });
-  }, {manualCleanup: true });
+    });*/
+  }, /*{ manualCleanup: true }*/);
 
   stopSetInterval() {
     this.timerEffect.destroy()

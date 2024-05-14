@@ -5,7 +5,7 @@
 === Avant Angular 17
 
 * Utilisation des *Directives Structurelle*
-* Provenant du *CommonModule*
+* Importation du *CommonModule*
 
 === !
 

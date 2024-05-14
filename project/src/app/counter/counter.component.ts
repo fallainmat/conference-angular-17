@@ -8,12 +8,15 @@ import {
   signal, untracked,
   WritableSignal
 } from '@angular/core';
-import {MatButton} from "@angular/material/button";
+import {MatAnchor, MatButton} from "@angular/material/button";
 import {BehaviorSubject, map, Observable} from "rxjs";
-import {AsyncPipe, NgIf} from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {NewNasaService} from "../core/new/new-nasa.service";
 import {CounterChildComponent} from "./components/counter-child/counter-child.component";
+import {MatIcon} from "@angular/material/icon";
+import {MatToolbar} from "@angular/material/toolbar";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
   selector: 'app-counter',
@@ -21,15 +24,18 @@ import {CounterChildComponent} from "./components/counter-child/counter-child.co
   imports: [
     MatButton,
     AsyncPipe,
-    NgIf,
-    CounterChildComponent
-  ],
+    CounterChildComponent,
+    MatAnchor,
+    MatIcon,
+    MatToolbar,
+    RouterLink,
+    RouterLinkActive
+],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CounterComponent implements OnInit {
-  injector: Injector = inject(Injector);
   count: WritableSignal<number> = signal(0);
   doubleCount: Signal<number> = computed(() => this.count() * 2, { equal: () => this.stopCount });
 
@@ -41,29 +47,32 @@ export class CounterComponent implements OnInit {
     } else {
       return 'Je ne vois plus ce count';
     }
-  });
+  }, { equal: () => this.stopCount });
 
+  stopCount: boolean = false;
+  injector: Injector = inject(Injector);
+  displayChild = false;
 
   countObs$ = new BehaviorSubject(0);
   doubleCountObs$: Observable<number> = this.countObs$.pipe(map(value => value * 2));
   countObs: number = 0;
 
-  stopCount: boolean = false;
 
-  displayChild = false;
+  comptutedActivated = false;
+  effectActivated = false;
 
   constructor() {
     this.countObs$.pipe(takeUntilDestroyed()).subscribe(value => {
       this.countObs = value
     });
-
-    effect(() => {
-      console.log(untracked(this.count));
-      this.injector.get(NewNasaService).getListOfDailyImages(new Date()).subscribe();
-    }, {injector: this.injector});
   }
 
   ngOnInit() {
+/*    effect(() => {
+      console.log(this.count);
+      // this.count.update((value) => value + 1);
+      this.injector.get(NewNasaService).getListOfDailyImages(new Date()).subscribe();
+    }, { injector: this.injector });*/
   }
 
   incrementValue() {

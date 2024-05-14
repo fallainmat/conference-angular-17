@@ -1,12 +1,18 @@
-<div class="container-number-asteroid" *ngIf="nbdailyImages$ | async as nbdailyImages">
-  <p class="number-asteroid"> Nombre d'image : {{ nbdailyImages }}</p>
-</div>
+@if (nbdailyImages$ | async; as nbdailyImages) {
+  <div class="container-number-asteroid">
+    <p class="number-asteroid"> Nombre d'image : {{ nbdailyImages }}</p>
+  </div>
+}
 
-<mat-grid-list cols="3" rowHeight="1:1" *ngIf="dailyImages$ | async as dailyImage" class="container-card">
-  <mat-grid-tile *ngFor="let dailyImage of dailyImage">
-    <app-old-card [dailyImage]="dailyImage"></app-old-card>
-  </mat-grid-tile>
-</mat-grid-list>
+@if (dailyImages$ | async; as dailyImage) {
+  <mat-grid-list cols="3" rowHeight="1:1" class="container-card">
+    @for (dailyImage of dailyImage; track dailyImage) {
+      <mat-grid-tile>
+        <app-old-card [dailyImage]="dailyImage"></app-old-card>
+      </mat-grid-tile>
+    }
+  </mat-grid-list>
+}
 
 
 

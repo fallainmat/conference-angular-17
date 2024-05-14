@@ -1,5 +1,12 @@
 <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-  <h1>Signal</h1>
+  <mat-toolbar style="margin-top: -20px; background-color: #151515">
+    <nav>
+      <button mat-button style="color: #cccccc">Signal</button>
+      <button mat-button style="color: #cccccc" (click)="comptutedActivated = !comptutedActivated">Computed</button>
+      <button mat-button style="color: #cccccc" (click)="effectActivated = !effectActivated">Effect</button>
+    </nav>
+  </mat-toolbar>
+  <h1 style="margin-top: 20px">Signal</h1>
   <div style="border: thick double #9CD9F0; width: 90%; padding: 10px">
     <div style="display: flex; justify-content: space-between">
       <div style="display: flex; flex-direction: column">
@@ -17,27 +24,33 @@
       <button mat-button color="primary" (click)="incrementValue()">Increment</button>
     </div>
   </div>
-  <h1 style="margin-top: 50px">Computed</h1>
-  <div style="border: thick double #9CD9F0; width: 90%; padding: 10px">
-    <div style="margin-top: 50px; display: flex; flex-direction: column; align-items: center">
-      <h1>{{ conditionalCount() }}</h1>
-      <button mat-button color="primary" (click)="changeConditionalDouble()" style="margin-top: 40px">Je veux voir un
-        double count
-      </button>
+  @if (comptutedActivated) {
+    <h1 style="margin-top: 20px">Computed</h1>
+    <div style="border: thick double #9CD9F0; width: 90%; padding: 10px">
+      <div style="margin-top: 50px; display: flex; flex-direction: column; align-items: center">
+        <h1>{{ conditionalCount() }}</h1>
+        <button mat-button color="primary" (click)="changeConditionalDouble()" style="margin-top: 40px">Je veux voir un
+          double count
+        </button>
+      </div>
+      <div style="margin-top: 50px">
+        <button mat-button color="primary" (click)="changeStopCount()">{{ stopCount ? 'REBOUGE' : 'ARRETE DE BOUGER' }} DOUBLE COUNT</button>
+      </div>
     </div>
-    <div style="margin-top: 50px">
-      <button mat-button color="primary" (click)="changeStopCount()">{{ stopCount ? 'REBOUGE' : 'ARRETE DE BOUGER' }} DOUBLE COUNT</button>
-    </div>
-  </div>
+  }
 
-  <h1 style="margin-top: 50px">Effect</h1>
-  <div style="border: thick double #9CD9F0; width: 90%; padding: 10px; display: flex; flex-direction: column; align-items: center">
-    <div>
-      <button mat-button color="warn" (click)="changeDisplayChild()">remove child</button>
-      <button mat-button color="primary" (click)="changeDisplayChild()">add child</button>
+  @if (effectActivated) {
+    <h1 style="margin-top: 20px">Effect</h1>
+    <div style="border: thick double #9CD9F0; width: 90%; padding: 10px; display: flex; flex-direction: column; align-items: center">
+      <div>
+        <button mat-button color="warn" (click)="changeDisplayChild()">remove child</button>
+        <button mat-button color="primary" (click)="changeDisplayChild()">add child</button>
+      </div>
+      <div style="margin: 20px 0">
+        @if (displayChild) {
+          <app-counter-child></app-counter-child>
+        }
+      </div>
     </div>
-    <div style="margin: 20px 0">
-      <app-counter-child *ngIf="displayChild"></app-counter-child>
-    </div>
-  </div>
+  }
 </div>

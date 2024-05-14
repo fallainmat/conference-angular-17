@@ -1,4 +1,4 @@
-<ng-container *ngIf="dailyImageByDate$| async as dailyImage">
+@if (dailyImageByDate$| async; as dailyImage) {
   <div class="container-article">
     <div class="article-image">
       <img [src]="dailyImage.url">
@@ -6,11 +6,10 @@
     <div class="article-desc">
       <h1>{{dailyImage.title}}</h1>
       <p>{{dailyImage.explanation}}</p>
-
       <div class="article-copyright">
         <h2>{{dailyImage.date}}</h2>
         <h2>{{dailyImage.copyright}}</h2>
       </div>
     </div>
   </div>
-</ng-container>
+}
