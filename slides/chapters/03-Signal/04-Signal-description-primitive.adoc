@@ -17,7 +17,7 @@ Deux Types de Signaux
 [%auto-animate]
 === !
 
-[source,typescript,linenums, data-id=component]
+[source,typescript,linenums, data-id=component, highlight=29]
 ----
 ...
 @Component({
@@ -51,7 +51,7 @@ export class AppComponent {
 
 === !
 
-[source,typescript,linenums, data-id=component]
+[source,typescript,linenums, data-id=component, highlight=64]
 ----
 ...
 @Component({
@@ -78,7 +78,7 @@ export class AppComponent {
 [%auto-animate]
 === !
 
-[source,typescript,linenums,data-id=component]
+[source,typescript,linenums,data-id=component, highlight=94]
 ----
 ...
 @Component({
