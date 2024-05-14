@@ -3,20 +3,22 @@ import {
   Component,
   computed,
   effect,
-  inject, Injector, OnInit,
+  inject,
+  Injector,
+  OnInit,
   Signal,
-  signal, untracked,
+  signal,
   WritableSignal
 } from '@angular/core';
 import {MatAnchor, MatButton} from "@angular/material/button";
 import {BehaviorSubject, map, Observable} from "rxjs";
-import { AsyncPipe } from "@angular/common";
+import {AsyncPipe} from "@angular/common";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import {NewNasaService} from "../core/new/new-nasa.service";
 import {CounterChildComponent} from "./components/counter-child/counter-child.component";
 import {MatIcon} from "@angular/material/icon";
 import {MatToolbar} from "@angular/material/toolbar";
 import {RouterLink, RouterLinkActive} from "@angular/router";
+import {NewNasaService} from "../core/new/new-nasa.service";
 
 @Component({
   selector: 'app-counter',
@@ -37,7 +39,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
 })
 export class CounterComponent implements OnInit {
   count: WritableSignal<number> = signal(0);
-  doubleCount: Signal<number> = computed(() => this.count() * 2, { equal: () => this.stopCount });
+  doubleCount: Signal<number> = computed(() => this.count() * 2);
 
 
   showCount = signal(false);
@@ -47,7 +49,7 @@ export class CounterComponent implements OnInit {
     } else {
       return 'Je ne vois plus ce count';
     }
-  }, { equal: () => this.stopCount });
+  });
 
   stopCount: boolean = false;
   injector: Injector = inject(Injector);
@@ -65,14 +67,15 @@ export class CounterComponent implements OnInit {
     this.countObs$.pipe(takeUntilDestroyed()).subscribe(value => {
       this.countObs = value
     });
+
   }
 
   ngOnInit() {
-/*    effect(() => {
+    effect(() => {
       console.log(this.count);
-      // this.count.update((value) => value + 1);
-      this.injector.get(NewNasaService).getListOfDailyImages(new Date()).subscribe();
-    }, { injector: this.injector });*/
+      this.injector.get(NewNasaService).getDailyImageByDate('2021-10-10').subscribe(), {allowSignalWrites: true}
+      ;
+    }, {injector: this.injector});
   }
 
   incrementValue() {
