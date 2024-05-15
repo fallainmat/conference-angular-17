@@ -17,7 +17,7 @@ Deux Types de Signaux
 [%auto-animate]
 === !
 
-[source,typescript,linenums, data-id=component, highlight=29]
+[source,typescript,linenums, data-id=signal, highlight=8]
 ----
 ...
 @Component({
@@ -57,7 +57,7 @@ Pourquoi les parenthèses ?
 
 === !
 
-[source,typescript,linenums, data-id=component, highlight=64]
+[source,typescript,linenums, data-id=computed, highlight=9]
 ----
 ...
 @Component({
@@ -84,7 +84,7 @@ export class AppComponent {
 [%auto-animate]
 === !
 
-[source,typescript,linenums,data-id=component, highlight=94]
+[source,typescript,linenums,data-id=effect, highlight=11]
 ----
 ...
 @Component({

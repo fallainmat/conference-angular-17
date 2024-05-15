@@ -1,7 +1,7 @@
 [.columns]
 == !
 
-image::onepoint_rvb_baseline.png[]
+image::onepoint.jpg[]
 
 include::03-Présentation-onepoint.adoc[]
 include::02-Présentation.adoc[]

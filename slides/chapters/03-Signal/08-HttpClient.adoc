@@ -16,8 +16,7 @@ HttpClient fonctionne toujours avec les observables, donc subscribe etc etc.
 
 [%auto-animate]
 === !
-
-[source,typescript,linenums,data-id=component, highlight=33]
+[source,typescript,linenums,data-id=component, highlight=12]
 ----
 ...
 import {toSignal} from "@angular/core/rxjs-interop";

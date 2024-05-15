@@ -1,3 +1,7 @@
 === !
 
-image::recrutement-onepoint.png[]
+image::onepoint-description.jpg[]
+
+=== !
+
+image::onepoint-recrutement.jpg[]
