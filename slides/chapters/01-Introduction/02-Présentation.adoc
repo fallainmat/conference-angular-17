@@ -1,5 +1,5 @@
 [.columns]
-=== Qui sommes nous ?
+=== [.sub_title]#Qui sommes nous ?#
 
 [.column.is-half]
 --

@@ -1,4 +1,0 @@
-== Conclusion
-
-include::02-Angular-18.adoc[]
-include::03-Remerciement.adoc[]

@@ -38,7 +38,11 @@ import {NewNasaService} from "../core/new/new-nasa.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CounterComponent implements OnInit {
-  count: WritableSignal<number> = signal(0);
+  count: WritableSignal<number> = signal(0,
+/*
+    {equal: (a, b) => a === 4}
+*/
+  );
   doubleCount: Signal<number> = computed(() => this.count() * 2);
 
 
@@ -72,10 +76,9 @@ export class CounterComponent implements OnInit {
 
   ngOnInit() {
     effect(() => {
-      console.log(this.count);
-      this.injector.get(NewNasaService).getDailyImageByDate('2021-10-10').subscribe(), {allowSignalWrites: true}
-      ;
-    }, {injector: this.injector});
+      //console.log(this.count);
+      //this.injector.get(NewNasaService).getDailyImageByDate('2021-10-10').subscribe();
+    });
   }
 
   incrementValue() {

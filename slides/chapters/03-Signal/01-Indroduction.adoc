@@ -1,14 +1,321 @@
-== Signal
+== [.title]#Signal#
 
-[.notes]
-****
-Signal est arrivé avec Angular 16 suite à la RFC https://github.com/angular/angular/discussions/49685.
-****
+=== [.sub_title]#Zone.js#
 
-include::02-Avant-Angular-16.adoc[]
-include::03-Apres-Angular-16.adoc[]
-include::04-Signal-description-primitive.adoc[]
-include::05-Signal-input.adoc[]
-include::06-Signal-model.adoc[]
-include::07-Signal-queries.adoc[]
-include::08-HttpClient.adoc[]
+[NOTE.speaker]
+--
+* Détection de changement avec un exemple simple.
+* Aborder le concept de zone et de propagation.
+--
+
+=== !
+
+--
+[.arbo]
+image::signal/app.png[]
+
+--
+
+[%step]
+--
+[.arbo-2-1]
+image::signal/child1.png[]
+
+[.arbo-2-2]
+image::signal/child2.png[]
+--
+
+[%step]
+--
+[.arbo-3-1]
+image::signal/sub1child1.png[]
+
+[.arbo-3-2]
+image::signal/sub2child1.png[]
+
+[.arbo-3-3]
+image::signal/sub1child2.png[]
+
+[.arbo-3-4]
+image::signal/sub2child2.png[]
+--
+
+[%step]
+--
+[.arbo-4-1]
+image::signal/last1sub1child1.png[]
+
+[.arbo-4-2]
+image::signal/last2sub1child1.png[]
+
+[.arbo-4-3]
+image::signal/last1sub2child1.png[]
+
+[.arbo-4-4]
+image::signal/last1sub1child2.png[]
+
+[.arbo-4-5]
+image::signal/last1sub2child2.png[]
+
+[.arbo-4-6]
+image::signal/last2sub2child2.png[]
+--
+
+[%step]
+--
+[.arbo-2-2]
+image::signal/child2a.png[]
+--
+
+[%step]
+--
+[.arbo-3-4]
+image::signal/sub2child2i.png[]
+--
+
+[%step]
+--
+[.arbo-3-3]
+image::signal/sub1child2a.png[]
+[.arbo-3-4]
+image::signal/sub2child2a.png[]
+--
+
+[%step]
+--
+[.arbo-4-4]
+image::signal/last1sub1child2a.png[]
+[.arbo-4-5]
+image::signal/last1sub2child2a.png[]
+[.arbo-4-6]
+image::signal/last1sub2child2a.png[]
+--
+
+[NOTE.speaker]
+--
+* Exemple simple d'un événement déclencher sur le composant child2.
+* Il n'y a qu'un seul impact sur le composant subChild2.
+--
+
+=== [.sub_title]#Signal#
+
+[%step]
+RFC https://github.com/angular/angular/discussions/49685
+
+=== !
+
+--
+[.arbo]
+image::signal/app.png[]
+
+[.arbo-2-1]
+image::signal/child1.png[]
+
+[.arbo-2-2]
+image::signal/child2.png[]
+
+[.arbo-3-1]
+image::signal/sub1child1.png[]
+
+[.arbo-3-2]
+image::signal/sub2child1.png[]
+
+[.arbo-3-3]
+image::signal/sub1child2.png[]
+
+[.arbo-3-4]
+image::signal/sub2child2.png[]
+
+[.arbo-4-1]
+image::signal/last1sub1child1.png[]
+
+[.arbo-4-2]
+image::signal/last2sub1child1.png[]
+
+[.arbo-4-3]
+image::signal/last1sub2child1.png[]
+
+[.arbo-4-4]
+image::signal/last1sub1child2.png[]
+
+[.arbo-4-5]
+image::signal/last1sub2child2.png[]
+
+[.arbo-4-6]
+image::signal/last2sub2child2.png[]
+--
+
+[%step]
+--
+[.arbo-2-2]
+image::signal/child2a.png[]
+--
+
+[%step]
+--
+[.arbo-3-4]
+image::signal/sub2child2i.png[]
+--
+
+[%step]
+--
+[.arbo-3-4]
+image::signal/sub2child2a.png[]
+--
+
+=== [.sub_title]#Signal Writable#
+
+[%step.list]
+
+* Signal
+
+=== !
+
+[source,typescript, highlight="7"]
+----
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  count: WritableSignal<number> = signal(0);
+}
+----
+
+=== !
+
+[source,html,linenums]
+----
+<p>{{count()}}</p>
+----
+
+=== [.sub_title]#Signaux Read-only#
+
+[%step.list]
+
+* Computed
+* Effect
+
+[%auto-animate]
+=== [.sub_title]#Computed#
+
+=== !
+
+[source,typescript,linenums, data-id=computed, highlight="8|9..10"]
+----
+...
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  count: WritableSignal<number> = signal(0);
+  doubleCount: Signal<number> = computed(() =>
+        this.count() * 2);
+}
+----
+
+[NOTE.speaker]
+--
+* Le computed est un signal qui dépend d'un autre signal.
+--
+
+=== !
+
+[source,html,linenums]
+----
+<p>{{doubleCount()}}</p>
+----
+
+[%auto-animate]
+=== [.sub_title]#Effect#
+
+[%auto-animate]
+=== !
+
+[source,typescript, highlight="7|11|10..12"]
+----
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  count: WritableSignal<number> = signal(0);
+
+  constructor() {
+    effect(() => {
+      console.log(this.count());
+    });
+  }
+}
+----
+
+=== [.sub_title]#Rien de mieux que la pratique#
+
+[.control-flow-demo-image]
+
+image::demo.png[]
+
+=== [.sub_title]#Preview Time#
+
+image::signal/slalom.gif[]
+
+
+=== !
+
+[%step.list]
+* Signal Input
+* Signal Model
+* Signal Queries
+
+=== [.sub_title]#ça donne quoi ?#
+
+[.control-flow-demo-image]
+image::demo.png[]
+
+[%auto-animate]
+=== [.sub_title]#Observable#
+
+[%auto-animate]
+=== [.sub_title]#Observable#
+
+[%step.list]
+* toSignal()
+* toObservable()
+
+[%auto-animate]
+=== !
+[source,typescript,linenums,data-id=component, highlight="2|4..6"]
+----
+export class TestService {
+  httpClient = inject(HttpClient);
+
+  get(date: string): Observable<Interface> {
+    return this.httpClient.get<Interface>(`url`);
+  }
+}
+----
+
+=== !
+[source,typescript,linenums,data-id=component, highlight="5|1..2,7|1..2,9"]
+----
+import {toSignal, toObservable} from
+"@angular/core/rxjs-interop";
+
+export class TestComponent {
+    $test: Observable<number> = of(1)
+
+    test: Signal<number> = toSignal(this.$test);
+
+    $test2: Observable<number> = toObservable(this.test);
+}
+----
+
+=== !
+
+image::signal/signal-observable.png[width=80%]
+
+

@@ -1,0 +1,17 @@
+== [.title]#Zoneless#
+
+=== [.sub_title]#Experimental#
+
+Il est possible de tester nos applications en Zoneless à partir d'Angular 18.
+
+=== !
+
+[source,typescript]
+----
+export const appConfig: ApplicationConfig = {
+  providers: [
+    // ...
+    provideExperimentalZonelessChangeDetection()
+  ]
+};
+----

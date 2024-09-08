@@ -1,0 +1,3 @@
+== [.title]#Angular Change de logo,pass:q[<br>] mais pas que !#
+
+image::logo_angular_17.png[width=250, align=center]

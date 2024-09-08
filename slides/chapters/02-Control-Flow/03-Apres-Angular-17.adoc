@@ -1,18 +1,18 @@
 [%auto-animate]
-=== Après Angular 17
+=== [.sub_title]#Après Angular 17#
 
 
 [%auto-animate]
-=== Après Angular 17
+=== [.sub_title]#Après Angular 17#
 WARNING: Control Flow est en version developer preview. Il est prêt à être essayé, mais peut changer avant de devenir stable.
 
 [%auto-animate]
-=== Après Angular 17
+=== [.sub_title]#Après Angular 17#
 [.line-through]#Utilisation des *Directives Structurelle*# +
 [.line-through]#Provenant du *CommonModule*#
 
 [%auto-animate]
-=== Pourquoi ce changement ?
+=== [.sub_title]#Pourquoi ce changement ?#
 * Passage à une syntaxe se rapprochant de JS
 * passage au _zoneless_ plus simple
 
@@ -22,7 +22,7 @@ WARNING: Control Flow est en version developer preview. Il est prêt à être es
 Ce dernier point est intéressant. Aujourd’hui les applications Angular repose sur zone.js pour gérer leurs détection de changement, dans un avenir très proche cette librairie externe ne sera plus nécessaire grâce aux Signal.
 ****
 
-=== Nouvelle Syntaxe
+=== [.sub_title]#Nouvelle Syntaxe#
 
 [source,html,linenums]
 ----
@@ -31,7 +31,7 @@ Ce dernier point est intéressant. Aujourd’hui les applications Angular repose
 }
 ----
 
-=== Pas de panique - une nouvelle schematic
+=== [.sub_title]#Pas de panique - une nouvelle schematic#
 ++++
 <div class=fakeMenu>
 </div>

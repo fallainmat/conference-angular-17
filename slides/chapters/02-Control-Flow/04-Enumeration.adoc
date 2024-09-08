@@ -1,6 +1,6 @@
-=== Place à l'avenir
+=== [.sub_title]#Place à l'avenir#
 
-=== Syntaxe @if
+=== [.sub_title]#Syntaxe @if#
 
 *@if* permet un rendu conditionnel dans vos templates
 
@@ -38,7 +38,7 @@
     <h1 class="name">{{ exoPlanet.name }}</h1>
 }
 @else {
-    <span>cette planète n'existe pas</span>   
+    <span>cette planète n'existe pas</span>
 }
 ----
 
@@ -52,7 +52,7 @@
 ----
 
 
-=== Syntaxe @for
+=== [.sub_title]#Syntaxe @for#
 
 *@for* est utilisé pour itérer sur des collections, comme des listes ou des tableaux.
 
@@ -87,7 +87,7 @@ Le bloc @for nécessite une *expression de suivi*. Angular utilise la valeur de 
 }
 ----
 
-=== $index et autres variables contextuelles
+=== [.sub_title]#$index et autres variables contextuelles#
 
 [source,html,linenums, data-id=for]
 ----
@@ -98,7 +98,7 @@ Le bloc @for nécessite une *expression de suivi*. Angular utilise la valeur de 
 
 [.notes]
 ****
-Il est quand-même possible de variabiliser la $index si besoin + 
+Il est quand-même possible de variabiliser la $index si besoin +
 par exemple pour des for imbriqué
 ****
 
@@ -111,7 +111,7 @@ par exemple pour des for imbriqué
 * *$count* : le nombre total d'éléments dans la collection.
 
 
-=== Syntaxe @switch
+=== [.sub_title]#Syntaxe @switch#
 
 *@switch* est utilisé pour exécuter différents morceaux de code en fonction de la valeur d'une expression.
 

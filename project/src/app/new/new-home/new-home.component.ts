@@ -1,11 +1,11 @@
-import { AsyncPipe, JsonPipe } from "@angular/common";
-import { Component, DestroyRef, inject, OnInit, Signal } from '@angular/core';
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { DailyImageModel } from "../../core/model/nasa.model";
-import { NewNasaService } from "../../core/new/new-nasa.service";
-import { OldCardComponent } from "../../old/components/old-card/old-card.component";
-import { NewCardComponent } from "../components/new-card/new-card.component";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import {AsyncPipe, JsonPipe} from "@angular/common";
+import {Component, DestroyRef, inject, OnInit, Signal} from '@angular/core';
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+import {DailyImageModel} from "../../core/model/nasa.model";
+import {NewNasaService} from "../../core/new/new-nasa.service";
+import {OldCardComponent} from "../../old/components/old-card/old-card.component";
+import {NewCardComponent} from "../components/new-card/new-card.component";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({

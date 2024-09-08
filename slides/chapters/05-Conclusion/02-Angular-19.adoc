@@ -1,0 +1,10 @@
+[%auto-animate]
+=== [.sub_title]#Et Angular 19 ?#
+
+[%auto-animate]
+=== [.sub_title]#Et Angular 19 ?#
+
+* Standalone default
+* Angular 19
+
+

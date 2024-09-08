@@ -1,7 +1,9 @@
-=== !
+== !
 
-image::onepoint-description.jpg[]
+image::onepoint.jpg[background, size=cover]
 
-=== !
-
-image::onepoint-recrutement.jpg[]
+[.onepoint-ecole%step]
+--
+image::ecole-onepoint.png[width=30%]
+Ecole Onepoint
+--

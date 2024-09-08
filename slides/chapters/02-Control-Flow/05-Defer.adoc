@@ -1,6 +1,6 @@
-=== @defer
+=== [.sub_title]#@defer#
 
-=== La nouvelle ère du Lazy Loading  
+=== [.sub_title]#La nouvelle ère du Lazy Loading#
 
 *@defer* permet de charger le contenu de manière différée, en fonction de différents déclencheurs.
 
@@ -21,20 +21,20 @@ WARNING: En SSR les *defer* ne seront jamais déclenchées.
 }
 ----
 
-=== De multiples déclencheurs
+=== [.sub_title]#De multiples déclencheurs#
 
 Deux options pour configurer le déclenchement :
 
 * *on*
 * *when*
 
-=== Déclencheur on
+=== [.sub_title]#Déclencheur on#
 
 *on* spécifie une condition à l'aide d'un déclencheur disponible dans Angular.
 
-Il est possible de définir plusieurs déclencheurs d'événements à la fois. 
+Il est possible de définir plusieurs déclencheurs d'événements à la fois.
 
-=== Chargement sur un Timer 
+=== [.sub_title]#Chargement sur un Timer#
 
 [source,html,linenums, data-id=defer]
 ----
@@ -45,7 +45,7 @@ Il est possible de définir plusieurs déclencheurs d'événements à la fois.
 }
 ----
 
-=== Chargement sur une Interaction 
+=== [.sub_title]#Chargement sur une Interaction#
 
 [source,html,linenums, data-id=defer]
 ----
@@ -60,7 +60,7 @@ Il est possible de définir plusieurs déclencheurs d'événements à la fois.
 }
 ----
 
-=== Chargement sur l'entrée dans le Viewport 
+=== [.sub_title]#Chargement sur l'entrée dans le Viewport#
 
 [source,html,linenums, data-id=defer]
 ----
@@ -74,7 +74,7 @@ Il est possible de définir plusieurs déclencheurs d'événements à la fois.
 ----
 [.notes]
 ****
-pas de possibilité de offset pour le moment 
+pas de possibilité de offset pour le moment
 ****
 
 === !
@@ -87,14 +87,14 @@ pas de possibilité de offset pour le moment
 ****
 
 * *idle* : chargement quand le navigateur est inactif.
-* *viewport* : chargement du bloc lorsque l'élément devient visible dans la fenêtre du navigateur. 
+* *viewport* : chargement du bloc lorsque l'élément devient visible dans la fenêtre du navigateur.
 * *interaction* : chargement lorsque l'utilisateur interagit avec l'élément.
 * *hover* : chargement du bloc lorsque l'utilisateur survole l'élément.
 * *immediate* : chargement immédiat de l'élément N'affiche pas de placeholder, même s'il en existe un.
 * *timer* : chargement du bloc après une durée donnée.
 
 
-=== Déclencheur when
+=== [.sub_title]#Déclencheur when#
 
 *when* spécifie une condition sous la forme d'une expression qui renvoie un boolean.
 
@@ -114,7 +114,7 @@ WARNING: Si la condition *when* redevient fausse, le bloc "defer" n'est pas remp
 }
 ----
 
-=== gestion des timing 
+=== [.sub_title]#gestion des timing#
 
 Le chargement du bloc *@defer* pouvant être rapide, il existe un risque que le *@loading* soit affiché et masqué trop rapidement, ce qui provoquerait un effet de "scintillement".
 
@@ -137,7 +137,7 @@ Le chargement du bloc *@defer* pouvant être rapide, il existe un risque que le 
 }
 ----
 
-=== Gestion des erreurs 
+=== [.sub_title]#Gestion des erreurs#
 
 Le bloc *@error*  permet de déclarer le contenu qui sera affiché si le chargement différé échoue.
 
@@ -165,7 +165,7 @@ Ne marche pas en cas d'erreur HTTP Ce n'est pas un "catch"
 }
 ----
 
-=== Et pour les tests ?
+=== [.sub_title]#Et pour les tests ?#
 
 [%auto-animate]
 === !
@@ -179,7 +179,7 @@ beforeEach(() => {
 ...
 
 await fixture.whenStable();
-... 
+...
 const deferBlocks = await fixture.getDeferBlocks();
 expect(deferBlocks.length).toBe(1);
 ..
@@ -212,7 +212,7 @@ beforeEach(() => {
 ...
 
 await fixture.whenStable();
-... 
+...
 const deferBlocks = await fixture.getDeferBlocks();
 expect(deferBlocks.length).toBe(1);
 ..
@@ -239,7 +239,7 @@ beforeEach(() => {
 ...
 
 await fixture.whenStable();
-... 
+...
 const deferBlocks = await fixture.getDeferBlocks();
 expect(deferBlocks.length).toBe(1);
 ..

@@ -1,0 +1,7 @@
+[%auto-animate]
+=== !
+
+image::questions.png[]
+
+[.columns]
+=== [.title]#Remerciement#

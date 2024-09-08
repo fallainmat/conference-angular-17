@@ -10,11 +10,9 @@
 :imagesdir: assets
 :icons: font
 
-=== Angular Change de logo mais pas que !
-
-image::logo_angular_17.png[width=250, align=center]
-
+include::chapters/00-Home/00-Home.adoc[]
 include::chapters/01-Introduction/01-Introduction.adoc[]
 include::chapters/02-Control-Flow/01-Introduction.adoc[]
 include::chapters/03-Signal/01-Indroduction.adoc[]
-include::chapters/04-Conclusion/01-Introduction.adoc[]
+include::chapters/04-Zoneless/01-Introduction.adoc[]
+include::chapters/05-Conclusion/01-Introduction.adoc[]

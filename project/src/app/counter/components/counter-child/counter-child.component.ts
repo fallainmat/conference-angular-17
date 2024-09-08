@@ -9,11 +9,15 @@ import {Component, effect, signal} from '@angular/core';
 })
 export class CounterChildComponent {
   timer = signal(0);
-  timerEffect = effect(() => {
+  timerEffect = effect((onCleanup) => {
     const timerId = setInterval(() => {
      this.timer.update((value) => value + 1);
       console.log('timer', this.timer());
     }, 1000);
+
+    onCleanup(() => {
+      clearInterval(timerId);
+    });
   });
 
   stopSetInterval() {
